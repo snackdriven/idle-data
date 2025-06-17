@@ -12,13 +12,19 @@ Note: the command may fail in restricted environments.
 
 ## Development
 
-1. Start the API server:
+1. Install the project's dependencies:
+
+```bash
+npm install
+```
+
+2. Start the API server:
 
 ```bash
 npm run server
 ```
 
-2. In another terminal, start the frontend:
+3. In another terminal, start the frontend:
 
 ```bash
 npm run dev
