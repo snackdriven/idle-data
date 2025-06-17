@@ -5,8 +5,8 @@
 	"private": true,
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
-		"@types/bun": "latest",
-		"@vitejs/plugin-react": "^4.5.2"
+		"@vitejs/plugin-react": "^4.5.2",
+		"tsx": "^4.7.0"
 	},
 	"peerDependencies": {
 		"typescript": "^5"
@@ -22,6 +22,6 @@
 		"dev": "vite",
 		"lint": "biome check .",
 		"format": "biome format .",
-		"server": "bun run src/api/server.ts"
+		"server": "tsx src/api/server.ts"
 	}
 }
