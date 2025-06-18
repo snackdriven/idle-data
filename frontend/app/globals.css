@@ -365,3 +365,261 @@ body {
 .lj-page-summary a:hover {
   text-decoration: underline;
 }
+
+/* Profile page styles */
+.lj-profile-main {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+}
+
+.lj-profile-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.lj-profile-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.lj-profile-info {
+  background-color: white;
+}
+
+.lj-profile-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.lj-profile-avatar {
+  flex-shrink: 0;
+}
+
+.lj-avatar-placeholder {
+  width: 100px;
+  height: 100px;
+  background-color: #f0f0f0;
+  border: 1px solid #d0d0d0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lj-avatar-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #b8d4f1, #e8f4fd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lj-avatar-initial {
+  font-size: 32px;
+  font-weight: bold;
+  color: #4eb3d3;
+}
+
+.lj-profile-details {
+  flex: 1;
+}
+
+.lj-profile-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.lj-usericon {
+  color: #4eb3d3;
+  font-size: 16px;
+}
+
+.lj-profile-username {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4eb3d3;
+}
+
+.lj-profile-motto {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.lj-profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lj-pro-badge {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.lj-profile-link {
+  color: #4eb3d3;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.lj-profile-link:hover {
+  text-decoration: underline;
+}
+
+.lj-profile-settings {
+  flex-shrink: 0;
+}
+
+.lj-settings-icon {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.lj-profile-tabs {
+  display: flex;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+}
+
+.lj-tab {
+  color: #0066cc;
+  text-decoration: none;
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: bold;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.lj-tab:hover {
+  background-color: #e8e8e8;
+}
+
+.lj-tab.active {
+  background-color: white;
+  border-bottom: 2px solid #4eb3d3;
+  color: #000;
+}
+
+.lj-profile-info-section {
+  padding: 16px;
+}
+
+.lj-info-row {
+  display: flex;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.lj-info-label {
+  font-weight: bold;
+  color: #666;
+  width: 140px;
+  flex-shrink: 0;
+}
+
+.lj-info-value {
+  color: #000;
+}
+
+.lj-profile-stats {
+  margin-top: 0;
+}
+
+.lj-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.lj-stat-item:last-child {
+  border-bottom: none;
+}
+
+.lj-stat-icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.lj-stat-details {
+  flex: 1;
+}
+
+.lj-stat-number {
+  font-weight: bold;
+  color: #4eb3d3;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.lj-stat-label {
+  color: #666;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+/* User dropdown menu */
+.lj-user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.lj-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  min-width: 120px;
+}
+
+.lj-user-dropdown:hover .lj-dropdown-menu {
+  display: block;
+}
+
+.lj-dropdown-menu a {
+  display: block;
+  padding: 8px 12px;
+  color: #333;
+  text-decoration: none;
+  font-size: 11px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.lj-dropdown-menu a:last-child {
+  border-bottom: none;
+}
+
+.lj-dropdown-menu a:hover {
+  background-color: #f8f8f8;
+}
+
+/* Make username in user header clickable */
+.lj-user-header .lj-username:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

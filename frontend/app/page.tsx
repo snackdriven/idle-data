@@ -6,6 +6,7 @@ import type { journal } from "@/app/lib/client";
 import type { FC } from "react";
 import { useEffect, useState, useId } from "react";
 import { DateTime } from "luxon";
+import { Header, UserHeader, Navigation } from "./components/shared";
 
 function App() {
   const [baseURL, setBaseURL] = useState("");
@@ -17,7 +18,7 @@ function App() {
     <div className="lj-container">
       <Header />
       <UserHeader />
-      <Navigation />
+      <Navigation activePage="recent" />
       <div className="lj-main">
         <div className="lj-content">
           <JournalEntries client={new Client(baseURL)} />
@@ -29,53 +30,6 @@ function App() {
     </div>
   );
 }
-
-const Header: FC = () => {
-  return (
-    <div className="lj-top-header">
-      <div className="lj-header-content">
-        <div className="lj-logo">
-          <span className="lj-logo-text">LIVEJOURNAL</span>
-        </div>
-        <div className="lj-top-nav">
-          <a href="/find">FIND MORE</a>
-          <a href="/friends">FRIENDS FEED</a>
-          <a href="/shop">SHOP</a>
-        </div>
-        <div className="lj-user-section">
-          <span className="lj-post-button">POST NEW ENTRY</span>
-          <span className="lj-notifications">🔔</span>
-          <span className="lj-username-top">HELLASPOOKY ▼</span>
-          <span className="lj-search">🔍</span>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const UserHeader: FC = () => {
-  return (
-    <div className="lj-user-header">
-      <span className="lj-username">HELLASPOOKY</span>
-      <span className="lj-tagline">you speak only in riddles and loss</span>
-    </div>
-  );
-};
-
-const Navigation: FC = () => {
-  return (
-    <div className="lj-nav">
-      <div className="lj-nav-tabs">
-        <a href="/" className="active">RECENT ENTRIES</a>
-        <a href="/friends">FRIENDS</a>
-        <a href="/archive">ARCHIVE</a>
-        <a href="/profile">PROFILE</a>
-        <a href="/add">ADD TO MEMORIES</a>
-        <a href="/rss">RSS</a>
-      </div>
-    </div>
-  );
-};
 
 const JournalEntries: FC<{ client: Client }> = ({ client }) => {
   const { isLoading, error, data } = useQuery({
