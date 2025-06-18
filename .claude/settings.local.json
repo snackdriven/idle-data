@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(encore run)",
+      "Bash(encore version)",
+      "Bash(npx:*)",
+      "Bash(export ENCORE_INSTALL=\"/home/kg/.encore\")",
+      "Bash(export PATH=\"$ENCORE_INSTALL/bin:$PATH\")",
+      "Bash(encore run:*)",
+      "Bash(encore secret set:*)",
+      "Bash(SLACK_WEBHOOK_URL=\"\" encore run)",
+      "Bash(encore:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(git checkout:*)"
+    ],
+    "deny": []
+  }
+}

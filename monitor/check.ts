@@ -1,5 +1,5 @@
 import { api } from "encore.dev/api";
-import { Subscription, Topic } from "encore.dev/pubsub";
+import { Subscription } from "encore.dev/pubsub";
 import { SQLDatabase } from "encore.dev/storage/sqldb";
 import { Site, SiteAddedTopic } from "../site/site";
 import { ping } from "./ping";
@@ -37,13 +37,6 @@ const cronJob = new CronJob("check-all", {
 async function doCheck(site: Site): Promise<{ up: boolean }> {
   const { up } = await ping({ url: site.url });
 
-  // Publish a Pub/Sub message if the site transitions
-  // from up->down or from down->up.
-  const wasUp = await getPreviousMeasurement(site.id);
-  if (up !== wasUp) {
-    await TransitionTopic.publish({ site, up });
-  }
-
   await MonitorDB.exec`
       INSERT INTO checks (site_id, up, checked_at)
       VALUES (${site.id}, ${up}, NOW())
@@ -51,18 +44,6 @@ async function doCheck(site: Site): Promise<{ up: boolean }> {
   return { up };
 }
 
-// getPreviousMeasurement reports whether the given site was
-// up or down in the previous measurement.
-async function getPreviousMeasurement(siteID: number): Promise<boolean> {
-  const row = await MonitorDB.queryRow`
-      SELECT up
-      FROM checks
-      WHERE site_id = ${siteID}
-      ORDER BY checked_at DESC
-      LIMIT 1
-  `;
-  return row?.up ?? true;
-}
 
 // Define a database named 'monitor', using the database migrations
 // in the "./migrations" folder. Encore automatically provisions,
@@ -77,15 +58,3 @@ const _ = new Subscription(SiteAddedTopic, "check-site", {
   handler: doCheck,
 });
 
-// TransitionEvent describes a transition of a monitored site
-// from up->down or from down->up.
-export interface TransitionEvent {
-  site: Site; // Site is the monitored site in question.
-  up: boolean; // Up specifies whether the site is now up or down (the new value).
-}
-
-// 'uptime-transition' is a pubsub topic with transition events for when a monitored site
-// transitions from up->down or from down->up.
-export const TransitionTopic = new Topic<TransitionEvent>("uptime-transition", {
-  deliveryGuarantee: "at-least-once",
-});

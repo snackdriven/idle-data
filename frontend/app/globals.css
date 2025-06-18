@@ -14,7 +14,7 @@ body {
 
 /* Top header with LiveJournal logo and navigation */
 .lj-top-header {
-  background: linear-gradient(to bottom, #4eb3d3, #2e8ebe);
+  background: linear-gradient(to bottom, #6b4ed3, #be2eb7);
   color: white;
   padding: 8px 16px;
   border-bottom: 1px solid #237aa7;
@@ -75,7 +75,7 @@ body {
 }
 
 .lj-post-button:hover {
-  background-color: #31b0d5;
+  background-color: #8631d5;
 }
 
 .lj-notifications,
