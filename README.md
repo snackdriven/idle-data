@@ -1,20 +1,4 @@
-# Event-Driven Architecture Starter
 
-This is an event-driven microservices application using Pub/Sub for asynchronous communication between services.
-
-The example in this starter is an Uptime Monitoring System that continuously monitors the uptime of a list of websites. 
-
-When it detects a website is down, it posts a Slack message notifying that the website is down, and another message when the website is back up again.
-
-It has a react frontend and you can try a demo version [here](https://uptime.encore.build/).
-
-![Frontend](https://encore.dev/assets/tutorials/uptime/frontend.png)
-![Architecture](https://encore.dev/assets/tutorials/uptime/encore-flow.png)
-
-
-## Build from scratch with a tutorial
-
-If you prefer, check out the [tutorial](https://encore.dev/docs/ts/tutorials/uptime) to learn how to build this application from scratch.
 
 ## Prerequisites 
 
@@ -41,11 +25,6 @@ Before running your application, make sure you have Docker installed and running
 
 ```bash
 encore run
-```
-
-To use the Slack integration, set the Slack Webhook URL (see tutorial above):
-```bash
-encore secret set --type local,dev,pr,prod SlackWebhookURL
 ```
 
 **Note:** Cron Jobs do not execute when running locally.
@@ -129,3 +108,198 @@ To run tests, configure the `test` command in your `package.json` to the test ru
 ```bash
 encore test
 ```
+
+# Idle Data - LiveJournal-style Web Application
+
+A modern web application built with Encore.ts, Next.js, and TypeScript, featuring a responsive UI with dark mode support and optimized performance.
+
+## Prerequisites
+
+- Node.js v20 or later
+- npm v9 or later
+- [Encore CLI](https://encore.dev/docs/install)
+
+## Project Structure
+
+```
+idle-data/
+├── frontend/          # Next.js frontend application
+│   ├── app/          # Next.js app directory
+│   │   ├── components/  # Reusable UI components
+│   │   │   ├── layout/   # Layout components
+│   │   │   ├── ui/       # UI component library
+│   │   │   └── utils/    # Utility components
+│   │   ├── contexts/   # React contexts
+│   │   ├── hooks/      # Custom React hooks
+│   │   └── styles/     # CSS styles and variables
+├── journal/          # Journal service
+├── monitor/          # Monitoring service
+└── site/            # Site management service
+```
+
+## Features
+
+- 🎨 Modern UI with dark mode support
+- 📱 Responsive design for all devices
+- ⚡ Optimized performance with code splitting
+- 🧩 Reusable component library
+- 📚 Storybook documentation
+- 🔄 Optimistic updates for better UX
+- ♿ Accessibility features (ARIA labels, keyboard navigation)
+- 🎭 Theme customization with CSS variables
+
+## Getting Started
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Set up environment variables:
+```bash
+# Create a .env file in the root directory
+cp .env.example .env
+```
+
+## Development
+
+### Starting the Backend
+
+The backend is powered by Encore.ts. To start the development server:
+
+```bash
+encore run
+```
+
+This will:
+- Start all backend services
+- Run database migrations
+- Watch for file changes
+- Available at http://localhost:4000
+
+### Starting the Frontend
+
+The frontend is a Next.js application. To start the development server:
+
+```bash
+# From the project root
+cd frontend
+npm run dev
+```
+
+This will:
+- Start the Next.js development server
+- Enable hot module replacement
+- Available at http://localhost:3000
+
+### Running Storybook
+
+Storybook is used for component development and documentation:
+
+```bash
+# From the project root
+npm run storybook
+```
+
+This will:
+- Start the Storybook development server
+- Open the browser automatically
+- Available at http://localhost:6006
+
+## Component Library
+
+Our UI component library includes:
+
+- **Layout Components**
+  - Header - Main application header
+  - Navigation - Navigation menu with active state
+  - UserHeader - User profile header
+
+- **UI Components**
+  - Button - Customizable button component
+  - Input - Form input with validation
+  - TextArea - Multi-line text input
+  - Select - Dropdown select component
+  - Modal - Accessible modal dialog
+  - LoadingSkeleton - Loading state placeholder
+
+- **Utility Components**
+  - LazyLoad - Component lazy loading utility
+
+## Custom Hooks
+
+- `useForm` - Form state management and validation
+- `useMutation` - Data mutation with optimistic updates
+
+## Styling System
+
+- CSS variables for theming
+- Dark mode support
+- Responsive breakpoints
+- Utility classes
+- Container and grid system
+- Responsive typography
+
+## Available Scripts
+
+- `npm run dev` - Start the frontend development server
+- `npm run build` - Build the frontend for production
+- `npm run start` - Start the production frontend server
+- `npm run storybook` - Start Storybook for component development
+- `npm run build-storybook` - Build Storybook for static deployment
+
+## Development Workflow
+
+1. Start the backend server:
+```bash
+encore run
+```
+
+2. In a new terminal, start the frontend:
+```bash
+cd frontend
+npm run dev
+```
+
+3. (Optional) Start Storybook for component development:
+```bash
+npm run storybook
+```
+
+## API Documentation
+
+- Backend API documentation is available at http://localhost:4000/docs when running the development server
+- Component documentation is available in Storybook at http://localhost:6006
+
+## Database Management
+
+Encore handles database migrations automatically. However, you can use these commands for database operations:
+
+```bash
+# Reset database (development only)
+encore db reset
+
+# Connect to database shell
+encore db shell <database-name> --env=local --superuser
+```
+
+## Future Improvements
+
+- [ ] Add keyboard navigation support
+- [ ] Implement infinite scrolling
+- [ ] Add search functionality
+- [ ] Implement real-time updates
+- [ ] Add analytics tracking
+- [ ] Implement error tracking
+- [ ] Add performance monitoring
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Run tests and ensure Storybook documentation is updated
+4. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
