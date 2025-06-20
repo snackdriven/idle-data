@@ -329,9 +329,146 @@ EOL
     fi
 }
 
+# Function to setup Git configuration
+setup_git() {
+    print_status "green" "Setting up Git configuration..."
+
+    # Check if Git is installed
+    if ! command_exists git; then
+        print_status "red" "Git is not installed. Installing Git..."
+        sudo apt-get install -y git
+    fi
+
+    # Check if git config exists
+    if [ ! -f "~/.gitconfig" ]; then
+        print_status "yellow" "Git configuration not found. Let's set it up..."
+        
+        # Prompt for Git configuration
+        print_status "yellow" "Please enter your Git username:"
+        read git_username
+        print_status "yellow" "Please enter your Git email:"
+        read git_email
+
+        # Configure Git globally
+        git config --global user.name "$git_username"
+        git config --global user.email "$git_email"
+        
+        # Configure default branch name
+        git config --global init.defaultBranch main
+        
+        # Configure line endings for cross-platform compatibility
+        git config --global core.autocrlf input
+    else
+        print_status "yellow" "Git configuration already exists."
+    fi
+
+    # Initialize Git repository if not already initialized
+    if [ ! -d ".git" ]; then
+        print_status "green" "Initializing Git repository..."
+        git init
+        
+        # Add .gitignore if it doesn't exist
+        if [ ! -f ".gitignore" ]; then
+            cat > .gitignore << EOL
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+.next/
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Database
+*.sqlite
+*.db
+
+# Encore local development
+.encore
+EOL
+            print_status "green" "Created .gitignore file"
+        fi
+
+        # Add all files and make initial commit
+        git add .
+        git commit -m "Initial commit"
+    fi
+
+    # Setup remote repository if not already set
+    if ! git remote | grep -q "origin"; then
+        print_status "yellow" "No remote repository found."
+        print_status "yellow" "Please enter your remote repository URL (leave empty to skip):"
+        read remote_url
+        if [ ! -z "$remote_url" ]; then
+            git remote add origin "$remote_url"
+            print_status "green" "Remote repository added successfully."
+            
+            # Ask if user wants to push to remote
+            print_status "yellow" "Would you like to push to the remote repository? (y/n)"
+            read should_push
+            if [ "$should_push" = "y" ]; then
+                git push -u origin main
+            fi
+        fi
+    else
+        print_status "yellow" "Remote repository already configured."
+    fi
+
+    # Configure Git LFS if needed
+    if [ -f ".gitattributes" ] || find . -type f -size +50M 2>/dev/null | grep -q .; then
+        print_status "yellow" "Large files detected. Setting up Git LFS..."
+        
+        # Install Git LFS
+        sudo apt-get install -y git-lfs
+        
+        # Initialize Git LFS
+        git lfs install
+        
+        # Setup default LFS tracks if .gitattributes doesn't exist
+        if [ ! -f ".gitattributes" ]; then
+            cat > .gitattributes << EOL
+*.png filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.gif filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
+EOL
+            git add .gitattributes
+            git commit -m "Add Git LFS configuration"
+        fi
+    fi
+
+    print_status "green" "Git setup completed successfully!"
+}
+
 # Main installation process
 main() {
     print_status "green" "Starting installation process..."
+
+    # Setup Git first
+    setup_git
 
     # Check if running in Docker
     if [ -f "/.dockerenv" ]; then
@@ -366,6 +503,10 @@ main() {
     print_status "yellow" "\nFor Docker development:"
     print_status "yellow" "1. Run 'docker-compose up --build' to start all services"
     print_status "yellow" "2. Visit http://localhost:3000 to view your application"
+    print_status "yellow" "\nFor Git usage:"
+    print_status "yellow" "1. Your repository is initialized and configured"
+    print_status "yellow" "2. Use 'git push' to push changes to remote repository"
+    print_status "yellow" "3. Use 'git pull' to get latest changes"
     print_status "yellow" "\nNote: Update the .env file with your specific configuration if needed"
 }
 
