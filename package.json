@@ -1,43 +1,27 @@
 {
-  "name": "uptime",
-  "private": true,
-  "version": "0.0.1",
-  "description": "Encore Uptime Monitoring Tutorial",
-  "license": "MPL-2.0",
-  "type": "module",
-  "scripts": {
-    "test": "vitest",
-    "gen": "encore gen client --output=./frontend/app/lib/client.ts --env=local"
-  },
-  "devDependencies": {
-    "@storybook/addon-a11y": "^8.6.14",
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/addon-interactions": "^8.6.14",
-    "@storybook/addon-links": "^8.6.14",
-    "@storybook/blocks": "^8.6.14",
-    "@storybook/nextjs": "^8.6.14",
-    "@storybook/react": "^8.6.14",
-    "@storybook/testing-library": "^0.2.1",
-    "@types/luxon": "^3.0.1",
-    "@types/node": "^20.5.7",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "typescript": "^5.2.2",
-    "vitest": "^2.1.4"
-  },
-  "dependencies": {
-    "@headlessui/react": "^1.7.2",
-    "@heroicons/react": "^2.0.11",
-    "@tanstack/react-query": "^5.31.0",
-    "encore.dev": "^1.48.4",
-    "knex": "^3.0.1",
-    "luxon": "^3.0.4",
-    "next": "14.2.2",
-    "pg": "^8.11.3",
-    "react": "^18",
-    "react-dom": "^18"
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.13.0"
-  }
+	"name": "idle-data",
+	"module": "index.ts",
+	"type": "module",
+	"private": true,
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@vitejs/plugin-react": "^4.5.2",
+		"tsx": "^4.7.0"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"@hono/node-server": "^1.14.4",
+		"hono": "^4.7.11",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"vite": "^6.3.5"
+	},
+	"scripts": {
+		"dev": "vite",
+		"lint": "biome check .",
+		"format": "biome format .",
+		"server": "tsx src/api/server.ts"
+	}
 }
