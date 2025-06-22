@@ -33,4 +33,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       </div>
     );
   }
-); 
+);
+
+TextArea.displayName = 'TextArea'; 

@@ -60,6 +60,30 @@ encore db shell <database-name> --env=local --superuser
 - `vite.config.ts`: Vite config with alias for `~encore` -> `./encore.gen`
 - `package.json`: Uses Vitest for testing, includes Encore.dev dependencies
 
+## Frontend Architecture
+
+The frontend uses a modern component-based architecture with:
+
+- **Component Library**: Located in `frontend/app/components/ui/`
+  - `Button`, `Input`, `TextArea`, `Select` - Form components with accessibility
+  - `Card`, `CardHeader`, `CardContent`, `CardFooter` - Layout components
+  - `Toast`, `ToastContainer` - Notification system
+  - `ThemeToggle` - Dark/light mode switcher
+  - `Modal`, `LoadingSkeleton` - UI utilities
+
+- **Layout Components**: Located in `frontend/app/components/layout/`
+  - `Header`, `Navigation`, `UserHeader` - Application layout
+
+- **Design System**: Located in `frontend/app/styles/`
+  - `variables.css` - CSS custom properties with semantic color scales, fluid typography, responsive spacing
+  - `components.css` - Component styles using design tokens
+  - `globals.css` - Global styles and legacy LiveJournal theming
+
+- **Theme System**: Dark/light mode support via `ThemeContext`
+  - Automatic system preference detection
+  - Persistent theme storage in localStorage
+  - CSS custom properties for seamless theme switching
+
 ## Development Notes
 
 - Cron jobs do not execute when running locally with `encore run`
@@ -67,3 +91,5 @@ encore db shell <database-name> --env=local --superuser
 - Database uses PostgreSQL with Knex.js ORM
 - Services use `encore.dev/api` for HTTP endpoints and `encore.dev/pubsub` for events
 - Generated code in `encore.gen/` should never be manually edited - regenerate with `npm run gen`
+- All UI components follow accessibility guidelines with ARIA labels and keyboard navigation
+- Component library includes Storybook stories for development and documentation

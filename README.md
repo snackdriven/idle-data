@@ -139,14 +139,16 @@ idle-data/
 
 ## Features
 
-- 🎨 Modern UI with dark mode support
-- 📱 Responsive design for all devices
-- ⚡ Optimized performance with code splitting
-- 🧩 Reusable component library
-- 📚 Storybook documentation
-- 🔄 Optimistic updates for better UX
-- ♿ Accessibility features (ARIA labels, keyboard navigation)
-- 🎭 Theme customization with CSS variables
+- 🎨 **Modern Design System**: Comprehensive color scales, fluid typography, responsive spacing
+- 🌙 **Dark Mode**: Complete theme system with automatic detection and toggle UI
+- 📱 **Responsive Design**: Mobile-first approach with fluid layouts and components
+- ⚡ **Performance**: Optimized loading with code splitting and lazy components
+- 🧩 **Component Library**: Reusable UI components with variants and accessibility
+- 📚 **Documentation**: Complete Storybook stories for all components
+- 🔄 **Optimistic Updates**: Better UX with immediate feedback and error handling
+- ♿ **Accessibility**: ARIA labels, keyboard navigation, focus management
+- 🎯 **Toast Notifications**: Modern notification system with animations
+- 🎛️ **Theme Toggle**: Seamless dark/light mode switching with persistence
 
 ## Getting Started
 
@@ -208,37 +210,45 @@ This will:
 
 ## Component Library
 
-Our UI component library includes:
+Our modern UI component library includes:
 
 - **Layout Components**
-  - Header - Main application header
+  - Header - Main application header with theme toggle
   - Navigation - Navigation menu with active state
   - UserHeader - User profile header
 
 - **UI Components**
-  - Button - Customizable button component
-  - Input - Form input with validation
-  - TextArea - Multi-line text input
-  - Select - Dropdown select component
-  - Modal - Accessible modal dialog
-  - LoadingSkeleton - Loading state placeholder
+  - Button - Customizable button with variants (primary, secondary, danger) and loading states
+  - Input - Form input with validation, labels, and error handling
+  - TextArea - Multi-line text input with validation
+  - Select - Dropdown select component with options
+  - Card - Flexible card component with header, content, footer sections
+  - Toast - Notification system with success, error, warning, info variants
+  - ThemeToggle - Dark/light mode switcher with icon and button variants
+  - Modal - Accessible modal dialog with overlay
+  - LoadingSkeleton - Loading state placeholder with animations
 
 - **Utility Components**
   - LazyLoad - Component lazy loading utility
+  - ToastContainer - Container for managing toast notifications
 
 ## Custom Hooks
 
 - `useForm` - Form state management and validation
 - `useMutation` - Data mutation with optimistic updates
 
-## Styling System
+## Design System
 
-- CSS variables for theming
-- Dark mode support
-- Responsive breakpoints
-- Utility classes
-- Container and grid system
-- Responsive typography
+Our modern design system features:
+
+- **CSS Variables**: Semantic design tokens for colors, spacing, typography
+- **Color System**: Comprehensive color scales (primary 50-900, gray 50-900) with dark mode variants
+- **Typography**: Fluid typography system with clamp() for responsive scaling
+- **Spacing**: Comprehensive spacing scale with responsive container spacing
+- **Dark Mode**: Complete theme support with automatic system preference detection
+- **Responsive Design**: Mobile-first approach with fluid spacing and typography
+- **Accessibility**: ARIA labels, focus management, keyboard navigation throughout
+- **Component Variants**: Multiple variants and sizes for all components
 
 ## Available Scripts
 

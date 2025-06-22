@@ -13,7 +13,9 @@
       "Bash(mv:*)",
       "Bash(rm:*)",
       "Bash(git checkout:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(npm run lint)",
+      "Bash(npm install:*)"
     ],
     "deny": []
   }

@@ -6,7 +6,10 @@ import type { journal } from "@/app/lib/client";
 import type { FC } from "react";
 import { useEffect, useState, useId } from "react";
 import { DateTime } from "luxon";
-import { Header, UserHeader, Navigation } from "./components/shared";
+import { Header } from "./components/layout/Header";
+import { UserHeader } from "./components/layout/UserHeader";
+import { Navigation } from "./components/layout/Navigation";
+import { Button, Input, TextArea, Select, Card, CardContent } from "./components/ui";
 
 function App() {
   const [baseURL, setBaseURL] = useState("");
@@ -95,79 +98,81 @@ const PostNewEntry: FC<{ client: Client }> = ({ client }) => {
 
   if (!isOpen) {
     return (
-      <button 
-        type="button"
-        className="lj-form" 
-        style={{ cursor: 'pointer', border: 'none', background: '#f8f8f8' }}
-        onClick={() => setIsOpen(true)}
-      >
-        <h3>POST NEW ENTRY</h3>
-      </button>
+      <Card variant="outlined" padding="md" clickable onClick={() => setIsOpen(true)}>
+        <CardContent>
+          <h3>POST NEW ENTRY</h3>
+        </CardContent>
+      </Card>
     );
   }
 
   return (
-    <form className="lj-form" onSubmit={handleSubmit}>
-      <h3>POST NEW ENTRY</h3>
-      
-      <div style={{ marginBottom: '8px' }}>
-        <input
-          type="text"
-          placeholder="Subject (optional)"
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-        />
-      </div>
+    <Card variant="outlined" padding="md">
+      <CardContent>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+          <h3 style={{ margin: 0 }}>POST NEW ENTRY</h3>
+          
+          <Input
+            type="text"
+            placeholder="Subject (optional)"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+            fullWidth
+          />
 
-      <div style={{ marginBottom: '8px' }}>
-        <textarea
-          placeholder="What's on your mind?"
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-          required
-        />
-      </div>
+          <TextArea
+            placeholder="What's on your mind?"
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+            required
+            fullWidth
+          />
 
-      <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
-        <input
-          type="text"
-          placeholder="Current mood"
-          value={mood}
-          onChange={(e) => setMood(e.target.value)}
-          style={{ flex: 1 }}
-        />
-        <input
-          type="text"
-          placeholder="Current music"
-          value={music}
-          onChange={(e) => setMusic(e.target.value)}
-          style={{ flex: 1 }}
-        />
-      </div>
+          <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
+            <Input
+              type="text"
+              placeholder="Current mood"
+              value={mood}
+              onChange={(e) => setMood(e.target.value)}
+              style={{ flex: 1 }}
+            />
+            <Input
+              type="text"
+              placeholder="Current music"
+              value={music}
+              onChange={(e) => setMusic(e.target.value)}
+              style={{ flex: 1 }}
+            />
+          </div>
 
-      <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '8px' }}>
-        <label htmlFor={privacyId} style={{ fontSize: '11px' }}>Privacy:</label>
-        <select 
-          id={privacyId}
-          value={privacy} 
-          onChange={(e) => setPrivacy(e.target.value as "public" | "friends" | "private")}
-          style={{ width: 'auto' }}
-        >
-          <option value="public">Public</option>
-          <option value="friends">Friends</option>
-          <option value="private">Private</option>
-        </select>
-      </div>
+          <Select
+            id={privacyId}
+            label="Privacy"
+            value={privacy}
+            onChange={(e) => setPrivacy(e.target.value as "public" | "friends" | "private")}
+            options={[
+              { value: "public", label: "Public" },
+              { value: "friends", label: "Friends" },
+              { value: "private", label: "Private" }
+            ]}
+          />
 
-      <div style={{ display: 'flex', gap: '8px' }}>
-        <button type="submit" disabled={createEntry.isPending || !body.trim()}>
-          {createEntry.isPending ? 'Posting...' : 'Post Entry'}
-        </button>
-        <button type="button" onClick={() => setIsOpen(false)}>
-          Cancel
-        </button>
-      </div>
-    </form>
+          <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
+            <Button 
+              type="submit" 
+              variant="primary"
+              disabled={createEntry.isPending || !body.trim()}
+              isLoading={createEntry.isPending}
+            >
+              Post Entry
+            </Button>
+            <Button type="button" variant="secondary" onClick={() => setIsOpen(false)}>
+              Cancel
+            </Button>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -290,47 +295,43 @@ const JournalEntry: FC<{ entry: journal.JournalEntry; client: Client }> = ({ ent
         ))}
       </div>
 
-      <div className="lj-entry-actions">
-        <button 
+      <div className="lj-entry-actions" style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap' }}>
+        <Button 
           type="button"
-          style={{ background: 'none', border: 'none', color: '#0066cc', cursor: 'pointer', fontSize: '11px', padding: 0, marginRight: '12px', textDecoration: 'none' }}
+          variant="secondary"
+          size="sm"
           onClick={() => setIsEditing(true)}
-          onMouseEnter={(e) => { e.currentTarget.style.textDecoration = 'underline'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.textDecoration = 'none'; }}
         >
           Edit Entry
-        </button>
-        <button 
+        </Button>
+        <Button 
           type="button"
-          style={{ background: 'none', border: 'none', color: '#0066cc', cursor: 'pointer', fontSize: '11px', padding: 0, marginRight: '12px', textDecoration: 'none' }}
+          variant="secondary"
+          size="sm"
           onClick={() => { /* TODO: implement */ }}
-          onMouseEnter={(e) => { e.currentTarget.style.textDecoration = 'underline'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.textDecoration = 'none'; }}
         >
           Add to Memories
-        </button>
-        <button 
+        </Button>
+        <Button 
           type="button"
-          style={{ background: 'none', border: 'none', color: '#0066cc', cursor: 'pointer', fontSize: '11px', padding: 0, marginRight: '12px', textDecoration: 'none' }}
+          variant="secondary"
+          size="sm"
           onClick={() => { /* TODO: implement */ }}
-          onMouseEnter={(e) => { e.currentTarget.style.textDecoration = 'underline'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.textDecoration = 'none'; }}
         >
           Track This
-        </button>
-        <button 
+        </Button>
+        <Button 
           type="button"
-          style={{ background: 'none', border: 'none', color: '#0066cc', cursor: 'pointer', fontSize: '11px', padding: 0, marginRight: '12px', textDecoration: 'none' }}
+          variant="danger"
+          size="sm"
           onClick={() => { 
             if (confirm('Are you sure you want to delete this entry?')) {
               deleteEntry.mutate();
             }
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.textDecoration = 'underline'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.textDecoration = 'none'; }}
         >
           Delete Entry
-        </button>
+        </Button>
       </div>
     </div>
   );
