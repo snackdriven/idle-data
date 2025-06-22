@@ -1,17 +1,4 @@
-import { serve } from "@hono/node-server";
-import { Hono } from "hono";
-import { cors } from "hono/cors";
-
-interface Entry {
-	id: string;
-	title: string;
-	body: string;
-	tags: string[];
-	timestamp: string;
-}
-
-const app = new Hono();
-app.use("*", cors());
+// Remove all imports and code using hono, @hono/node-server, and hono/cors.
 
 let entries: Entry[] = [];
 

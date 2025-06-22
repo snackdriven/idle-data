@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an uptime monitoring system built with Encore.dev - an event-driven microservices application using Pub/Sub for asynchronous communication. The system monitors websites, detects when they go down/up, and sends Slack notifications.
+This is an uptime monitoring system built with Encore.dev - an event-driven microservices application using Pub/Sub for asynchronous communication. The system monitors websites, detects when they go down/up, and sends notifications.
 
 ### Architecture
 
@@ -12,7 +12,6 @@ The application consists of 4 microservices:
 - **frontend**: Next.js React frontend (port 4000 when running locally)
 - **monitor**: Pings websites and stores uptime results in database
 - **site**: Manages the list of monitored websites with PostgreSQL storage
-- **slack**: Sends notifications via Slack webhooks using Pub/Sub events
 
 Key patterns:
 - Each service has an `encore.service.ts` file defining the service
@@ -52,12 +51,6 @@ npx biome lint .
 ```bash
 # Connect to local database
 encore db shell <database-name> --env=local --superuser
-```
-
-**Secrets management:**
-```bash
-# Set Slack webhook URL for notifications
-encore secret set --type local,dev,pr,prod SlackWebhookURL
 ```
 
 ## Key Configuration Files
