@@ -92,9 +92,22 @@ export const NoLabel: Story = {
 
 export const AllVariants: Story = {
 	render: () => (
-		<div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
+		<div
+			style={{
+				display: "flex",
+				gap: "1rem",
+				flexWrap: "wrap",
+				alignItems: "center",
+			}}
+		>
 			<div>
-				<h4 style={{ margin: "0 0 0.5rem 0", fontSize: "0.875rem", color: "var(--color-text-secondary)" }}>
+				<h4
+					style={{
+						margin: "0 0 0.5rem 0",
+						fontSize: "0.875rem",
+						color: "var(--color-text-secondary)",
+					}}
+				>
 					Button Variants
 				</h4>
 				<div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
@@ -104,7 +117,13 @@ export const AllVariants: Story = {
 				</div>
 			</div>
 			<div>
-				<h4 style={{ margin: "0 0 0.5rem 0", fontSize: "0.875rem", color: "var(--color-text-secondary)" }}>
+				<h4
+					style={{
+						margin: "0 0 0.5rem 0",
+						fontSize: "0.875rem",
+						color: "var(--color-text-secondary)",
+					}}
+				>
 					Icon Variants
 				</h4>
 				<div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>

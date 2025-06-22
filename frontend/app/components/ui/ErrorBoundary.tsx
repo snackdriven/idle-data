@@ -17,7 +17,7 @@ interface ErrorBoundaryState {
 /**
  * ErrorBoundary component that catches JavaScript errors anywhere in the child component tree
  * and displays a fallback UI instead of crashing the entire application.
- * 
+ *
  * @example
  * ```tsx
  * <ErrorBoundary>
@@ -25,7 +25,10 @@ interface ErrorBoundaryState {
  * </ErrorBoundary>
  * ```
  */
-export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+export class ErrorBoundary extends Component<
+	ErrorBoundaryProps,
+	ErrorBoundaryState
+> {
 	constructor(props: ErrorBoundaryProps) {
 		super(props);
 		this.state = { hasError: false };
@@ -39,7 +42,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
 	componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
 		// Log error details for debugging
 		console.error("ErrorBoundary caught an error:", error, errorInfo);
-		
+
 		// Update state with error info
 		this.setState({ errorInfo });
 
@@ -70,66 +73,82 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
 				<Card variant="outlined" padding="lg">
 					<CardContent>
 						<div role="alert" style={{ textAlign: "center" }}>
-							<h2 style={{ 
-								color: "var(--color-danger)", 
-								margin: "0 0 var(--space-4) 0",
-								fontSize: "var(--font-size-xl)"
-							}}>
+							<h2
+								style={{
+									color: "var(--color-danger)",
+									margin: "0 0 var(--space-4) 0",
+									fontSize: "var(--font-size-xl)",
+								}}
+							>
 								Oops! Something went wrong
 							</h2>
-							
-							<p style={{ 
-								color: "var(--color-text-secondary)", 
-								margin: "0 0 var(--space-6) 0",
-								fontSize: "var(--font-size-base)"
-							}}>
-								We encountered an unexpected error. You can try refreshing the page or going back to continue.
+
+							<p
+								style={{
+									color: "var(--color-text-secondary)",
+									margin: "0 0 var(--space-6) 0",
+									fontSize: "var(--font-size-base)",
+								}}
+							>
+								We encountered an unexpected error. You can try refreshing the
+								page or going back to continue.
 							</p>
 
 							{process.env.NODE_ENV === "development" && this.state.error && (
-								<details style={{ 
-									margin: "var(--space-4) 0", 
-									textAlign: "left",
-									background: "var(--color-bg-secondary)",
-									padding: "var(--space-3)",
-									borderRadius: "var(--radius-base)",
-									border: "1px solid var(--color-border)"
-								}}>
-									<summary style={{ 
-										cursor: "pointer", 
-										fontWeight: "var(--font-weight-medium)",
-										marginBottom: "var(--space-2)"
-									}}>
+								<details
+									style={{
+										margin: "var(--space-4) 0",
+										textAlign: "left",
+										background: "var(--color-bg-secondary)",
+										padding: "var(--space-3)",
+										borderRadius: "var(--radius-base)",
+										border: "1px solid var(--color-border)",
+									}}
+								>
+									<summary
+										style={{
+											cursor: "pointer",
+											fontWeight: "var(--font-weight-medium)",
+											marginBottom: "var(--space-2)",
+										}}
+									>
 										Error Details (Development Only)
 									</summary>
-									<pre style={{ 
-										fontSize: "var(--font-size-xs)", 
-										overflow: "auto",
-										margin: 0,
-										color: "var(--color-text-secondary)"
-									}}>
+									<pre
+										style={{
+											fontSize: "var(--font-size-xs)",
+											overflow: "auto",
+											margin: 0,
+											color: "var(--color-text-secondary)",
+										}}
+									>
 										{this.state.error.toString()}
 										{this.state.errorInfo?.componentStack && (
-											<>\n\nComponent Stack:\n{this.state.errorInfo.componentStack}</>
+											<>
+												\n\nComponent Stack:\n
+												{this.state.errorInfo.componentStack}
+											</>
 										)}
 									</pre>
 								</details>
 							)}
 
-							<div style={{ 
-								display: "flex", 
-								gap: "var(--space-3)", 
-								justifyContent: "center",
-								flexWrap: "wrap"
-							}}>
+							<div
+								style={{
+									display: "flex",
+									gap: "var(--space-3)",
+									justifyContent: "center",
+									flexWrap: "wrap",
+								}}
+							>
 								<Button variant="primary" onClick={this.handleRetry}>
 									Try Again
 								</Button>
 								<Button variant="secondary" onClick={this.handleReload}>
 									Reload Page
 								</Button>
-								<Button 
-									variant="secondary" 
+								<Button
+									variant="secondary"
 									onClick={() => window.history.back()}
 								>
 									Go Back
@@ -147,7 +166,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
 
 /**
  * Higher-order component that wraps a component with an ErrorBoundary
- * 
+ *
  * @example
  * ```tsx
  * const SafeComponent = withErrorBoundary(MyComponent);
@@ -155,7 +174,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
  */
 export function withErrorBoundary<P extends object>(
 	WrappedComponent: React.ComponentType<P>,
-	fallback?: ReactNode
+	fallback?: ReactNode,
 ) {
 	const WithErrorBoundaryComponent = (props: P) => (
 		<ErrorBoundary fallback={fallback}>
@@ -172,7 +191,7 @@ export function withErrorBoundary<P extends object>(
 
 /**
  * Hook for triggering errors in development/testing
- * 
+ *
  * @example
  * ```tsx
  * const triggerError = useErrorHandler();

@@ -8,7 +8,17 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
-	({ variant = "outlined", padding = "md", clickable = false, className = "", children, ...props }, ref) => {
+	(
+		{
+			variant = "outlined",
+			padding = "md",
+			clickable = false,
+			className = "",
+			children,
+			...props
+		},
+		ref,
+	) => {
 		const baseClasses = "card";
 		const variantClasses = {
 			elevated: "card--elevated",

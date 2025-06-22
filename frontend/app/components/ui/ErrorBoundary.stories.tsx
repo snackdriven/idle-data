@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ErrorBoundary, withErrorBoundary, useErrorHandler } from "./ErrorBoundary";
+import {
+	ErrorBoundary,
+	withErrorBoundary,
+	useErrorHandler,
+} from "./ErrorBoundary";
 import { Button } from "./Button";
 
 const meta = {
@@ -15,7 +19,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Component that throws an error for testing
-const ErrorThrowingComponent = ({ shouldThrow = false }: { shouldThrow?: boolean }) => {
+const ErrorThrowingComponent = ({
+	shouldThrow = false,
+}: { shouldThrow?: boolean }) => {
 	if (shouldThrow) {
 		throw new Error("This is a test error thrown by the component!");
 	}
@@ -27,11 +33,20 @@ const ErrorTriggerComponent = () => {
 	const triggerError = useErrorHandler();
 
 	return (
-		<div style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center" }}>
+		<div
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				gap: "1rem",
+				alignItems: "center",
+			}}
+		>
 			<p>This component is working normally.</p>
 			<Button
 				variant="danger"
-				onClick={() => triggerError(new Error("Manually triggered error for testing!"))}
+				onClick={() =>
+					triggerError(new Error("Manually triggered error for testing!"))
+				}
 			>
 				Trigger Error
 			</Button>
@@ -64,8 +79,12 @@ export const WithCustomFallback: Story = {
 					borderRadius: "0.5rem",
 				}}
 			>
-				<h3 style={{ color: "#dc2626", margin: "0 0 1rem 0" }}>Custom Error Fallback</h3>
-				<p style={{ margin: 0 }}>Something went wrong with this custom fallback UI.</p>
+				<h3 style={{ color: "#dc2626", margin: "0 0 1rem 0" }}>
+					Custom Error Fallback
+				</h3>
+				<p style={{ margin: 0 }}>
+					Something went wrong with this custom fallback UI.
+				</p>
 			</div>
 		),
 	},
@@ -90,31 +109,47 @@ export const InteractiveErrorTrigger: Story = {
 export const NestedErrorBoundaries: Story = {
 	render: () => (
 		<ErrorBoundary>
-			<div style={{ padding: "1rem", border: "2px solid #3b82f6", borderRadius: "0.5rem" }}>
+			<div
+				style={{
+					padding: "1rem",
+					border: "2px solid #3b82f6",
+					borderRadius: "0.5rem",
+				}}
+			>
 				<h3>Outer ErrorBoundary</h3>
 				<p>This content is protected by the outer error boundary.</p>
-				
+
 				<ErrorBoundary
 					fallback={
-						<div style={{ 
-							padding: "1rem", 
-							background: "#fef3c7", 
-							border: "1px solid #f59e0b",
-							borderRadius: "0.25rem",
-							margin: "1rem 0"
-						}}>
+						<div
+							style={{
+								padding: "1rem",
+								background: "#fef3c7",
+								border: "1px solid #f59e0b",
+								borderRadius: "0.25rem",
+								margin: "1rem 0",
+							}}
+						>
 							<strong>Inner Error Boundary:</strong> A nested component failed.
 						</div>
 					}
 				>
-					<div style={{ padding: "1rem", border: "2px solid #10b981", borderRadius: "0.5rem" }}>
+					<div
+						style={{
+							padding: "1rem",
+							border: "2px solid #10b981",
+							borderRadius: "0.5rem",
+						}}
+					>
 						<h4>Inner ErrorBoundary</h4>
 						<p>This content is protected by a nested error boundary.</p>
 						<ErrorThrowingComponent shouldThrow={true} />
 					</div>
 				</ErrorBoundary>
-				
-				<p>This content continues to work even if the nested component fails.</p>
+
+				<p>
+					This content continues to work even if the nested component fails.
+				</p>
 			</div>
 		</ErrorBoundary>
 	),

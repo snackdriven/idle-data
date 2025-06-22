@@ -1,625 +1,625 @@
-@import url('https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Georgia:ital,wght@0,400;0,700;1,400&display=swap");
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 12px;
-  background-color: #ffffff;
-  color: #000000;
+	margin: 0;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 12px;
+	background-color: #ffffff;
+	color: #000000;
 }
 
 /* Top header with LiveJournal logo and navigation */
 .lj-top-header {
-  background: linear-gradient(to bottom, #6b4ed3, #be2eb7);
-  color: white;
-  padding: 8px 16px;
-  border-bottom: 1px solid #237aa7;
+	background: linear-gradient(to bottom, #6b4ed3, #be2eb7);
+	color: white;
+	padding: 8px 16px;
+	border-bottom: 1px solid #237aa7;
 }
 
 .lj-header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1000px;
-  margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 1000px;
+	margin: 0 auto;
 }
 
 .lj-logo {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .lj-logo-text {
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  margin-right: 8px;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
+	margin-right: 8px;
 }
 
 .lj-top-nav {
-  display: flex;
-  gap: 20px;
-  flex: 1;
-  justify-content: center;
+	display: flex;
+	gap: 20px;
+	flex: 1;
+	justify-content: center;
 }
 
 .lj-top-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: bold;
+	color: white;
+	text-decoration: none;
+	font-size: 11px;
+	font-weight: bold;
 }
 
 .lj-top-nav a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .lj-user-section {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 11px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-size: 11px;
 }
 
 .lj-post-button {
-  background-color: #5bc0de;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 3px;
-  cursor: pointer;
-  font-weight: bold;
+	background-color: #5bc0de;
+	color: white;
+	padding: 4px 8px;
+	border-radius: 3px;
+	cursor: pointer;
+	font-weight: bold;
 }
 
 .lj-post-button:hover {
-  background-color: #8631d5;
+	background-color: #8631d5;
 }
 
 .lj-notifications,
 .lj-search {
-  cursor: pointer;
-  font-size: 14px;
+	cursor: pointer;
+	font-size: 14px;
 }
 
 .lj-username-top {
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 /* User header section */
 .lj-user-header {
-  background-color: #d4edf4;
-  padding: 4px 16px;
-  font-size: 11px;
-  border-bottom: 1px solid #b8d4f1;
+	background-color: #d4edf4;
+	padding: 4px 16px;
+	font-size: 11px;
+	border-bottom: 1px solid #b8d4f1;
 }
 
 .lj-username {
-  font-weight: bold;
-  color: #000;
-  margin-right: 8px;
+	font-weight: bold;
+	color: #000;
+	margin-right: 8px;
 }
 
 .lj-tagline {
-  color: #666;
-  font-style: italic;
+	color: #666;
+	font-style: italic;
 }
 
 /* Navigation tabs */
 .lj-nav {
-  background-color: #b8d4f1;
-  border-bottom: 1px solid #7db3e8;
-  padding: 0 16px;
+	background-color: #b8d4f1;
+	border-bottom: 1px solid #7db3e8;
+	padding: 0 16px;
 }
 
 .lj-nav-tabs {
-  display: flex;
-  max-width: 1000px;
-  margin: 0 auto;
+	display: flex;
+	max-width: 1000px;
+	margin: 0 auto;
 }
 
 .lj-nav-tabs a {
-  color: #0066cc;
-  text-decoration: none;
-  padding: 8px 16px;
-  font-size: 11px;
-  font-weight: bold;
-  border-bottom: 2px solid transparent;
+	color: #0066cc;
+	text-decoration: none;
+	padding: 8px 16px;
+	font-size: 11px;
+	font-weight: bold;
+	border-bottom: 2px solid transparent;
 }
 
 .lj-nav-tabs a:hover {
-  background-color: #a8c4e1;
+	background-color: #a8c4e1;
 }
 
 .lj-nav-tabs a.active {
-  background-color: white;
-  border-bottom: 2px solid #4eb3d3;
-  color: #000;
+	background-color: white;
+	border-bottom: 2px solid #4eb3d3;
+	color: #000;
 }
 
 .lj-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  background-color: white;
+	max-width: 1000px;
+	margin: 0 auto;
+	background-color: white;
 }
 
 .lj-main {
-  display: flex;
-  gap: 16px;
-  padding: 16px;
+	display: flex;
+	gap: 16px;
+	padding: 16px;
 }
 
 .lj-content {
-  flex: 1;
-  min-width: 0;
+	flex: 1;
+	min-width: 0;
 }
 
 .lj-sidebar {
-  width: 200px;
-  flex-shrink: 0;
+	width: 200px;
+	flex-shrink: 0;
 }
 
 .lj-entry {
-  margin-bottom: 24px;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 16px;
+	margin-bottom: 24px;
+	border-bottom: 1px solid #e0e0e0;
+	padding-bottom: 16px;
 }
 
 .lj-entry:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 
 .lj-entry-header {
-  margin-bottom: 8px;
+	margin-bottom: 8px;
 }
 
 .lj-entry-date {
-  color: #666;
-  font-size: 11px;
-  font-weight: bold;
+	color: #666;
+	font-size: 11px;
+	font-weight: bold;
 }
 
 .lj-entry-subject {
-  font-size: 14px;
-  font-weight: bold;
-  margin: 4px 0;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 4px 0;
 }
 
 .lj-entry-meta {
-  font-size: 11px;
-  color: #666;
-  margin: 4px 0;
+	font-size: 11px;
+	color: #666;
+	margin: 4px 0;
 }
 
 .lj-entry-body {
-  line-height: 1.4;
-  margin: 8px 0;
+	line-height: 1.4;
+	margin: 8px 0;
 }
 
 .lj-entry-actions {
-  font-size: 11px;
-  margin-top: 8px;
+	font-size: 11px;
+	margin-top: 8px;
 }
 
 .lj-entry-actions a {
-  color: #0066cc;
-  text-decoration: none;
-  margin-right: 12px;
+	color: #0066cc;
+	text-decoration: none;
+	margin-right: 12px;
 }
 
 .lj-entry-actions a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .lj-widget {
-  background-color: #f8f8f8;
-  border: 1px solid #d0d0d0;
-  margin-bottom: 16px;
-  font-size: 11px;
+	background-color: #f8f8f8;
+	border: 1px solid #d0d0d0;
+	margin-bottom: 16px;
+	font-size: 11px;
 }
 
 .lj-widget-header {
-  background-color: #e8e8e8;
-  padding: 4px 8px;
-  font-weight: bold;
-  border-bottom: 1px solid #d0d0d0;
+	background-color: #e8e8e8;
+	padding: 4px 8px;
+	font-weight: bold;
+	border-bottom: 1px solid #d0d0d0;
 }
 
 .lj-widget-content {
-  padding: 8px;
+	padding: 8px;
 }
 
 .lj-calendar {
-  width: 100%;
+	width: 100%;
 }
 
 .lj-calendar table {
-  width: 100%;
-  border-collapse: collapse;
+	width: 100%;
+	border-collapse: collapse;
 }
 
 .lj-calendar th,
 .lj-calendar td {
-  text-align: center;
-  padding: 2px;
-  width: 14.28%;
+	text-align: center;
+	padding: 2px;
+	width: 14.28%;
 }
 
 .lj-calendar th {
-  background-color: #e8e8e8;
-  font-weight: bold;
-  border: 1px solid #d0d0d0;
+	background-color: #e8e8e8;
+	font-weight: bold;
+	border: 1px solid #d0d0d0;
 }
 
 .lj-calendar td {
-  border: 1px solid #e0e0e0;
-  height: 24px;
-  vertical-align: middle;
+	border: 1px solid #e0e0e0;
+	height: 24px;
+	vertical-align: middle;
 }
 
 .lj-calendar .has-entry {
-  background-color: #e8f4fd;
-  font-weight: bold;
+	background-color: #e8f4fd;
+	font-weight: bold;
 }
 
 .lj-calendar .today {
-  background-color: #ffff99;
+	background-color: #ffff99;
 }
 
 .lj-form {
-  background-color: #f8f8f8;
-  border: 1px solid #d0d0d0;
-  padding: 16px;
-  margin-bottom: 24px;
+	background-color: #f8f8f8;
+	border: 1px solid #d0d0d0;
+	padding: 16px;
+	margin-bottom: 24px;
 }
 
 .lj-form h3 {
-  margin: 0 0 12px 0;
-  font-size: 12px;
+	margin: 0 0 12px 0;
+	font-size: 12px;
 }
 
 .lj-form input,
 .lj-form textarea,
 .lj-form select {
-  width: 100%;
-  padding: 4px;
-  font-family: inherit;
-  font-size: 11px;
-  border: 1px solid #ccc;
-  margin-bottom: 8px;
+	width: 100%;
+	padding: 4px;
+	font-family: inherit;
+	font-size: 11px;
+	border: 1px solid #ccc;
+	margin-bottom: 8px;
 }
 
 .lj-form textarea {
-  height: 100px;
-  resize: vertical;
+	height: 100px;
+	resize: vertical;
 }
 
 .lj-form button {
-  background-color: #4eb3d3;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  font-size: 11px;
-  cursor: pointer;
+	background-color: #4eb3d3;
+	color: white;
+	border: none;
+	padding: 6px 12px;
+	font-size: 11px;
+	cursor: pointer;
 }
 
 .lj-form button:hover {
-  background-color: #2e8ebe;
+	background-color: #2e8ebe;
 }
 
 .lj-tags {
-  margin-top: 8px;
+	margin-top: 8px;
 }
 
 .lj-tag {
-  background-color: #e8f4fd;
-  border: 1px solid #b8d4f1;
-  padding: 2px 6px;
-  margin-right: 4px;
-  display: inline-block;
-  font-size: 10px;
-  border-radius: 3px;
-  cursor: pointer;
+	background-color: #e8f4fd;
+	border: 1px solid #b8d4f1;
+	padding: 2px 6px;
+	margin-right: 4px;
+	display: inline-block;
+	font-size: 10px;
+	border-radius: 3px;
+	cursor: pointer;
 }
 
 .lj-tag:hover {
-  background-color: #d0e8ff;
+	background-color: #d0e8ff;
 }
 
 .lj-mood {
-  font-style: italic;
-  color: #666;
+	font-style: italic;
+	color: #666;
 }
 
 .lj-music {
-  color: #666;
+	color: #666;
 }
 
 .lj-usericon {
-  width: 16px;
-  height: 16px;
-  margin-right: 4px;
-  vertical-align: middle;
+	width: 16px;
+	height: 16px;
+	margin-right: 4px;
+	vertical-align: middle;
 }
 
 /* Page summary in sidebar */
 .lj-page-summary ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 .lj-page-summary li {
-  margin-bottom: 2px;
+	margin-bottom: 2px;
 }
 
 .lj-page-summary a {
-  color: #0066cc;
-  text-decoration: none;
+	color: #0066cc;
+	text-decoration: none;
 }
 
 .lj-page-summary a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 /* Profile page styles */
 .lj-profile-main {
-  display: flex;
-  gap: 16px;
-  padding: 16px;
+	display: flex;
+	gap: 16px;
+	padding: 16px;
 }
 
 .lj-profile-content {
-  flex: 1;
-  min-width: 0;
+	flex: 1;
+	min-width: 0;
 }
 
 .lj-profile-sidebar {
-  width: 250px;
-  flex-shrink: 0;
+	width: 250px;
+	flex-shrink: 0;
 }
 
 .lj-profile-info {
-  background-color: white;
+	background-color: white;
 }
 
 .lj-profile-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 16px;
-  border-bottom: 1px solid #e0e0e0;
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+	padding: 16px;
+	border-bottom: 1px solid #e0e0e0;
 }
 
 .lj-profile-avatar {
-  flex-shrink: 0;
+	flex-shrink: 0;
 }
 
 .lj-avatar-placeholder {
-  width: 100px;
-  height: 100px;
-  background-color: #f0f0f0;
-  border: 1px solid #d0d0d0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 100px;
+	height: 100px;
+	background-color: #f0f0f0;
+	border: 1px solid #d0d0d0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .lj-avatar-circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #b8d4f1, #e8f4fd);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #b8d4f1, #e8f4fd);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .lj-avatar-initial {
-  font-size: 32px;
-  font-weight: bold;
-  color: #4eb3d3;
+	font-size: 32px;
+	font-weight: bold;
+	color: #4eb3d3;
 }
 
 .lj-profile-details {
-  flex: 1;
+	flex: 1;
 }
 
 .lj-profile-name {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 8px;
 }
 
 .lj-usericon {
-  color: #4eb3d3;
-  font-size: 16px;
+	color: #4eb3d3;
+	font-size: 16px;
 }
 
 .lj-profile-username {
-  font-size: 18px;
-  font-weight: bold;
-  color: #4eb3d3;
+	font-size: 18px;
+	font-weight: bold;
+	color: #4eb3d3;
 }
 
 .lj-profile-motto {
-  color: #666;
-  font-style: italic;
-  margin-bottom: 12px;
-  font-size: 14px;
+	color: #666;
+	font-style: italic;
+	margin-bottom: 12px;
+	font-size: 14px;
 }
 
 .lj-profile-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
 
 .lj-pro-badge {
-  background-color: #ff6b6b;
-  color: white;
-  padding: 2px 6px;
-  font-size: 10px;
-  font-weight: bold;
-  border-radius: 3px;
+	background-color: #ff6b6b;
+	color: white;
+	padding: 2px 6px;
+	font-size: 10px;
+	font-weight: bold;
+	border-radius: 3px;
 }
 
 .lj-profile-link {
-  color: #4eb3d3;
-  text-decoration: none;
-  font-size: 12px;
+	color: #4eb3d3;
+	text-decoration: none;
+	font-size: 12px;
 }
 
 .lj-profile-link:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .lj-profile-settings {
-  flex-shrink: 0;
+	flex-shrink: 0;
 }
 
 .lj-settings-icon {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  padding: 4px;
+	background: none;
+	border: none;
+	font-size: 18px;
+	cursor: pointer;
+	padding: 4px;
 }
 
 .lj-profile-tabs {
-  display: flex;
-  background-color: #f8f8f8;
-  border-bottom: 1px solid #e0e0e0;
-  overflow-x: auto;
+	display: flex;
+	background-color: #f8f8f8;
+	border-bottom: 1px solid #e0e0e0;
+	overflow-x: auto;
 }
 
 .lj-tab {
-  color: #0066cc;
-  text-decoration: none;
-  padding: 12px 16px;
-  font-size: 11px;
-  font-weight: bold;
-  border-bottom: 2px solid transparent;
-  white-space: nowrap;
+	color: #0066cc;
+	text-decoration: none;
+	padding: 12px 16px;
+	font-size: 11px;
+	font-weight: bold;
+	border-bottom: 2px solid transparent;
+	white-space: nowrap;
 }
 
 .lj-tab:hover {
-  background-color: #e8e8e8;
+	background-color: #e8e8e8;
 }
 
 .lj-tab.active {
-  background-color: white;
-  border-bottom: 2px solid #4eb3d3;
-  color: #000;
+	background-color: white;
+	border-bottom: 2px solid #4eb3d3;
+	color: #000;
 }
 
 .lj-profile-info-section {
-  padding: 16px;
+	padding: 16px;
 }
 
 .lj-info-row {
-  display: flex;
-  margin-bottom: 8px;
-  font-size: 12px;
+	display: flex;
+	margin-bottom: 8px;
+	font-size: 12px;
 }
 
 .lj-info-label {
-  font-weight: bold;
-  color: #666;
-  width: 140px;
-  flex-shrink: 0;
+	font-weight: bold;
+	color: #666;
+	width: 140px;
+	flex-shrink: 0;
 }
 
 .lj-info-value {
-  color: #000;
+	color: #000;
 }
 
 .lj-profile-stats {
-  margin-top: 0;
+	margin-top: 0;
 }
 
 .lj-stat-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 0;
-  border-bottom: 1px solid #f0f0f0;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 8px 0;
+	border-bottom: 1px solid #f0f0f0;
 }
 
 .lj-stat-item:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 
 .lj-stat-icon {
-  font-size: 16px;
-  width: 20px;
-  text-align: center;
+	font-size: 16px;
+	width: 20px;
+	text-align: center;
 }
 
 .lj-stat-details {
-  flex: 1;
+	flex: 1;
 }
 
 .lj-stat-number {
-  font-weight: bold;
-  color: #4eb3d3;
-  font-size: 14px;
-  line-height: 1.2;
+	font-weight: bold;
+	color: #4eb3d3;
+	font-size: 14px;
+	line-height: 1.2;
 }
 
 .lj-stat-label {
-  color: #666;
-  font-size: 11px;
-  line-height: 1.2;
+	color: #666;
+	font-size: 11px;
+	line-height: 1.2;
 }
 
 /* User dropdown menu */
 .lj-user-dropdown {
-  position: relative;
-  display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .lj-dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: white;
-  border: 1px solid #d0d0d0;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  z-index: 1000;
-  min-width: 120px;
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background-color: white;
+	border: 1px solid #d0d0d0;
+	border-radius: 4px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+	min-width: 120px;
 }
 
 .lj-user-dropdown:hover .lj-dropdown-menu {
-  display: block;
+	display: block;
 }
 
 .lj-dropdown-menu a {
-  display: block;
-  padding: 8px 12px;
-  color: #333;
-  text-decoration: none;
-  font-size: 11px;
-  border-bottom: 1px solid #f0f0f0;
+	display: block;
+	padding: 8px 12px;
+	color: #333;
+	text-decoration: none;
+	font-size: 11px;
+	border-bottom: 1px solid #f0f0f0;
 }
 
 .lj-dropdown-menu a:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 
 .lj-dropdown-menu a:hover {
-  background-color: #f8f8f8;
+	background-color: #f8f8f8;
 }
 
 /* Make username in user header clickable */
 .lj-user-header .lj-username:hover {
-  text-decoration: underline;
-  cursor: pointer;
+	text-decoration: underline;
+	cursor: pointer;
 }

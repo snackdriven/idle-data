@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useState, type HTMLAttributes } from "react";
 
-export interface ToastProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"> {
+export interface ToastProps
+	extends Omit<HTMLAttributes<HTMLDivElement>, "title"> {
 	type: "success" | "error" | "warning" | "info";
 	title: string;
 	description?: string;
@@ -14,7 +15,20 @@ export interface ToastProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"
 }
 
 export const Toast = forwardRef<HTMLDivElement, ToastProps>(
-	({ type, title, description, duration = 5000, onClose, action, className = "", children, ...props }, ref) => {
+	(
+		{
+			type,
+			title,
+			description,
+			duration = 5000,
+			onClose,
+			action,
+			className = "",
+			children,
+			...props
+		},
+		ref,
+	) => {
 		const [isVisible, setIsVisible] = useState(true);
 		const [isExiting, setIsExiting] = useState(false);
 
@@ -54,16 +68,26 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
 		};
 		const exitClass = isExiting ? "toast--exiting" : "";
 
-		const classes = [baseClasses, typeClasses[type], exitClass, className].filter(Boolean).join(" ");
+		const classes = [baseClasses, typeClasses[type], exitClass, className]
+			.filter(Boolean)
+			.join(" ");
 
 		return (
-			<div ref={ref} className={classes} role="alert" aria-live="polite" {...props}>
+			<div
+				ref={ref}
+				className={classes}
+				role="alert"
+				aria-live="polite"
+				{...props}
+			>
 				<div className="toast__icon" aria-hidden="true">
 					{typeIcons[type]}
 				</div>
 				<div className="toast__content">
 					<div className="toast__title">{title}</div>
-					{description && <div className="toast__description">{description}</div>}
+					{description && (
+						<div className="toast__description">{description}</div>
+					)}
 					{children}
 				</div>
 				<div className="toast__actions">
@@ -94,11 +118,20 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
 Toast.displayName = "Toast";
 
 export interface ToastContainerProps {
-	position?: "top-right" | "top-left" | "bottom-right" | "bottom-left" | "top-center" | "bottom-center";
+	position?:
+		| "top-right"
+		| "top-left"
+		| "bottom-right"
+		| "bottom-left"
+		| "top-center"
+		| "bottom-center";
 	children: React.ReactNode;
 }
 
-export const ToastContainer = ({ position = "top-right", children }: ToastContainerProps) => {
+export const ToastContainer = ({
+	position = "top-right",
+	children,
+}: ToastContainerProps) => {
 	const positionClasses = {
 		"top-right": "toast-container--top-right",
 		"top-left": "toast-container--top-left",

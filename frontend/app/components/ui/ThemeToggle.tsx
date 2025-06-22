@@ -1,14 +1,24 @@
 import { forwardRef, type ButtonHTMLAttributes } from "react";
 import { useTheme } from "../../contexts/ThemeContext";
 
-export interface ThemeToggleProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
+export interface ThemeToggleProps
+	extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
 	size?: "sm" | "md" | "lg";
 	variant?: "button" | "icon";
 	showLabel?: boolean;
 }
 
 export const ThemeToggle = forwardRef<HTMLButtonElement, ThemeToggleProps>(
-	({ size = "md", variant = "button", showLabel = true, className = "", ...props }, ref) => {
+	(
+		{
+			size = "md",
+			variant = "button",
+			showLabel = true,
+			className = "",
+			...props
+		},
+		ref,
+	) => {
 		const { theme, toggleTheme } = useTheme();
 
 		const sizeClasses = {
@@ -23,7 +33,12 @@ export const ThemeToggle = forwardRef<HTMLButtonElement, ThemeToggleProps>(
 		};
 
 		const baseClasses = "theme-toggle";
-		const classes = [baseClasses, sizeClasses[size], variantClasses[variant], className]
+		const classes = [
+			baseClasses,
+			sizeClasses[size],
+			variantClasses[variant],
+			className,
+		]
 			.filter(Boolean)
 			.join(" ");
 
@@ -45,7 +60,9 @@ export const ThemeToggle = forwardRef<HTMLButtonElement, ThemeToggleProps>(
 				<span className="theme-toggle__icon" aria-hidden="true">
 					{icon}
 				</span>
-				{variant === "button" && showLabel && <span className="theme-toggle__text">{text}</span>}
+				{variant === "button" && showLabel && (
+					<span className="theme-toggle__text">{text}</span>
+				)}
 			</button>
 		);
 	},

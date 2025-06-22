@@ -111,7 +111,13 @@ export const CustomContent: Story = {
 		title: "Custom content",
 		children: (
 			<div style={{ marginTop: "0.5rem" }}>
-				<p style={{ margin: "0 0 0.5rem 0", fontSize: "0.75rem", color: "var(--color-text-secondary)" }}>
+				<p
+					style={{
+						margin: "0 0 0.5rem 0",
+						fontSize: "0.75rem",
+						color: "var(--color-text-secondary)",
+					}}
+				>
 					This toast contains custom content with buttons.
 				</p>
 				<div style={{ display: "flex", gap: "0.5rem" }}>
@@ -152,14 +158,22 @@ export const CustomContent: Story = {
 export const MultipleToasts: Story = {
 	render: () => (
 		<ToastContainer>
-			<Toast type="success" title="Upload complete" description="Your file has been uploaded successfully." />
+			<Toast
+				type="success"
+				title="Upload complete"
+				description="Your file has been uploaded successfully."
+			/>
 			<Toast
 				type="warning"
 				title="Storage almost full"
 				description="You're using 95% of your storage space."
 				action={{ label: "Upgrade", onClick: () => alert("Upgrade clicked!") }}
 			/>
-			<Toast type="info" title="New message" description="You have 3 new messages in your inbox." />
+			<Toast
+				type="info"
+				title="New message"
+				description="You have 3 new messages in your inbox."
+			/>
 		</ToastContainer>
 	),
 };
@@ -167,7 +181,9 @@ export const MultipleToasts: Story = {
 export const InteractiveDemo: Story = {
 	render: () => {
 		const ToastDemo = () => {
-			const [toasts, setToasts] = useState<Array<{ id: number; props: any }>>([]);
+			const [toasts, setToasts] = useState<Array<{ id: number; props: any }>>(
+				[],
+			);
 			let nextId = 1;
 
 			const addToast = (props: any) => {
@@ -181,7 +197,14 @@ export const InteractiveDemo: Story = {
 
 			return (
 				<div style={{ padding: "2rem" }}>
-					<div style={{ display: "flex", gap: "1rem", marginBottom: "2rem", flexWrap: "wrap" }}>
+					<div
+						style={{
+							display: "flex",
+							gap: "1rem",
+							marginBottom: "2rem",
+							flexWrap: "wrap",
+						}}
+					>
 						<Button
 							variant="primary"
 							onClick={() =>
@@ -225,7 +248,10 @@ export const InteractiveDemo: Story = {
 									type: "info",
 									title: "Info",
 									description: "Here's some useful information.",
-									action: { label: "Learn more", onClick: () => alert("Action clicked!") },
+									action: {
+										label: "Learn more",
+										onClick: () => alert("Action clicked!"),
+									},
 								})
 							}
 						>

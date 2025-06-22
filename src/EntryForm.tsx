@@ -7,25 +7,25 @@ interface Props {
 }
 
 export default function EntryForm({ onSaved }: Props) {
-        const [title, setTitle] = useState("");
-        const [body, setBody] = useState("");
-        const [tags, setTags] = useState("");
-        const [timestamp, setTimestamp] = useState("");
+	const [title, setTitle] = useState("");
+	const [body, setBody] = useState("");
+	const [tags, setTags] = useState("");
+	const [timestamp, setTimestamp] = useState("");
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
-                const entry = await saveEntry({
-                        title,
-                        body,
-                        tags: tags.split(",").map((t) => t.trim()),
-                        timestamp: timestamp || undefined,
-                });
-                setTitle("");
-                setBody("");
-                setTags("");
-                setTimestamp("");
-                onSaved(entry);
-        };
+		const entry = await saveEntry({
+			title,
+			body,
+			tags: tags.split(",").map((t) => t.trim()),
+			timestamp: timestamp || undefined,
+		});
+		setTitle("");
+		setBody("");
+		setTags("");
+		setTimestamp("");
+		onSaved(entry);
+	};
 
 	return (
 		<form onSubmit={handleSubmit}>
@@ -39,18 +39,18 @@ export default function EntryForm({ onSaved }: Props) {
 				onChange={(e) => setBody(e.target.value)}
 				placeholder="Body"
 			/>
-                        <input
-                                value={tags}
-                                onChange={(e) => setTags(e.target.value)}
-                                placeholder="Tags (comma)"
-                        />
-                        <input
-                                type="datetime-local"
-                                value={timestamp}
-                                onChange={(e) => setTimestamp(e.target.value)}
-                                placeholder="Timestamp"
-                        />
-                        <button type="submit">Save</button>
-                </form>
-        );
+			<input
+				value={tags}
+				onChange={(e) => setTags(e.target.value)}
+				placeholder="Tags (comma)"
+			/>
+			<input
+				type="datetime-local"
+				value={timestamp}
+				onChange={(e) => setTimestamp(e.target.value)}
+				placeholder="Timestamp"
+			/>
+			<button type="submit">Save</button>
+		</form>
+	);
 }

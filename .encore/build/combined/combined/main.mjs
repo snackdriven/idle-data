@@ -34,14 +34,17 @@ import knex from "knex";
 var create = api2(
   { expose: true, method: "POST", path: "/journal" },
   async (params) => {
-    const entry = (await Entries().insert({
-      subject: params.subject,
-      body: params.body,
-      mood: params.mood,
-      music: params.music,
-      tags: params.tags,
-      privacy: params.privacy || "public"
-    }, "*"))[0];
+    const entry = (await Entries().insert(
+      {
+        subject: params.subject,
+        body: params.body,
+        mood: params.mood,
+        music: params.music,
+        tags: params.tags,
+        privacy: params.privacy || "public"
+      },
+      "*"
+    ))[0];
     return {
       id: entry.id,
       subject: entry.subject,
@@ -77,7 +80,10 @@ var get = api2(
 );
 var update = api2(
   { expose: true, method: "PUT", path: "/journal/:id" },
-  async ({ id, ...params }) => {
+  async ({
+    id,
+    ...params
+  }) => {
     const updateData = {
       updated_at: /* @__PURE__ */ new Date()
     };
@@ -318,21 +324,21 @@ var status = api6(
   }
 );
 
-// frontend/encore.service.ts
-import { Service } from "encore.dev/service";
-var encore_service_default = new Service("frontend");
-
-// monitor/encore.service.ts
-import { Service as Service2 } from "encore.dev/service";
-var encore_service_default2 = new Service2("monitor");
-
 // site/encore.service.ts
-import { Service as Service3 } from "encore.dev/service";
-var encore_service_default3 = new Service3("site");
+import { Service } from "encore.dev/service";
+var encore_service_default = new Service("site");
 
 // journal/encore.service.ts
+import { Service as Service2 } from "encore.dev/service";
+var encore_service_default2 = new Service2("journal");
+
+// monitor/encore.service.ts
+import { Service as Service3 } from "encore.dev/service";
+var encore_service_default3 = new Service3("monitor");
+
+// frontend/encore.service.ts
 import { Service as Service4 } from "encore.dev/service";
-var encore_service_default4 = new Service4("journal");
+var encore_service_default4 = new Service4("frontend");
 
 // encore.gen/internal/entrypoints/combined/main.ts
 var gateways = [];
@@ -347,7 +353,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": true, "isStream": false, "tags": [] },
-    middlewares: encore_service_default.cfg.middlewares || []
+    middlewares: encore_service_default4.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -359,7 +365,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default4.cfg.middlewares || []
+    middlewares: encore_service_default2.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -371,7 +377,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default4.cfg.middlewares || []
+    middlewares: encore_service_default2.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -383,7 +389,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default4.cfg.middlewares || []
+    middlewares: encore_service_default2.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -395,7 +401,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default4.cfg.middlewares || []
+    middlewares: encore_service_default2.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -407,7 +413,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default4.cfg.middlewares || []
+    middlewares: encore_service_default2.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -419,7 +425,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default2.cfg.middlewares || []
+    middlewares: encore_service_default3.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -431,7 +437,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default2.cfg.middlewares || []
+    middlewares: encore_service_default3.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -443,7 +449,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default2.cfg.middlewares || []
+    middlewares: encore_service_default3.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -455,7 +461,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default2.cfg.middlewares || []
+    middlewares: encore_service_default3.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -467,7 +473,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default3.cfg.middlewares || []
+    middlewares: encore_service_default.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -479,7 +485,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default3.cfg.middlewares || []
+    middlewares: encore_service_default.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -491,7 +497,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default3.cfg.middlewares || []
+    middlewares: encore_service_default.cfg.middlewares || []
   },
   {
     apiRoute: {
@@ -503,7 +509,7 @@ var handlers = [
       streamingResponse: false
     },
     endpointOptions: { "expose": true, "auth": false, "isRaw": false, "isStream": false, "tags": [] },
-    middlewares: encore_service_default3.cfg.middlewares || []
+    middlewares: encore_service_default.cfg.middlewares || []
   }
 ];
 registerGateways(gateways);

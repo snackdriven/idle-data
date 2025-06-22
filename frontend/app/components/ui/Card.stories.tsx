@@ -34,12 +34,14 @@ export const Basic: Story = {
 		children: (
 			<>
 				<CardHeader>
-					<h3 style={{ margin: 0, fontSize: "1.125rem", fontWeight: 600 }}>Card Title</h3>
+					<h3 style={{ margin: 0, fontSize: "1.125rem", fontWeight: 600 }}>
+						Card Title
+					</h3>
 				</CardHeader>
 				<CardContent>
 					<p style={{ margin: 0, color: "var(--color-text-secondary)" }}>
-						This is the card content. It can contain any kind of content including text, images, or other
-						components.
+						This is the card content. It can contain any kind of content
+						including text, images, or other components.
 					</p>
 				</CardContent>
 				<CardFooter>
@@ -62,11 +64,14 @@ export const Elevated: Story = {
 		children: (
 			<>
 				<CardHeader>
-					<h3 style={{ margin: 0, fontSize: "1.25rem", fontWeight: 600 }}>Elevated Card</h3>
+					<h3 style={{ margin: 0, fontSize: "1.25rem", fontWeight: 600 }}>
+						Elevated Card
+					</h3>
 				</CardHeader>
 				<CardContent>
 					<p style={{ margin: 0, color: "var(--color-text-secondary)" }}>
-						This card has a shadow and elevated appearance. Perfect for highlighting important content.
+						This card has a shadow and elevated appearance. Perfect for
+						highlighting important content.
 					</p>
 				</CardContent>
 			</>
@@ -81,11 +86,14 @@ export const Filled: Story = {
 		children: (
 			<>
 				<CardHeader>
-					<h3 style={{ margin: 0, fontSize: "1.125rem", fontWeight: 600 }}>Filled Card</h3>
+					<h3 style={{ margin: 0, fontSize: "1.125rem", fontWeight: 600 }}>
+						Filled Card
+					</h3>
 				</CardHeader>
 				<CardContent>
 					<p style={{ margin: 0, color: "var(--color-text-secondary)" }}>
-						This card has a filled background color. Great for grouping related content.
+						This card has a filled background color. Great for grouping related
+						content.
 					</p>
 				</CardContent>
 			</>
@@ -102,11 +110,14 @@ export const Clickable: Story = {
 		children: (
 			<>
 				<CardHeader>
-					<h3 style={{ margin: 0, fontSize: "1.125rem", fontWeight: 600 }}>Clickable Card</h3>
+					<h3 style={{ margin: 0, fontSize: "1.125rem", fontWeight: 600 }}>
+						Clickable Card
+					</h3>
 				</CardHeader>
 				<CardContent>
 					<p style={{ margin: 0, color: "var(--color-text-secondary)" }}>
-						Click anywhere on this card to trigger the onClick handler. Notice the hover effect.
+						Click anywhere on this card to trigger the onClick handler. Notice
+						the hover effect.
 					</p>
 				</CardContent>
 			</>
@@ -122,12 +133,15 @@ export const NoPadding: Story = {
 			<>
 				<div style={{ padding: "1rem 1rem 0 1rem" }}>
 					<CardHeader>
-						<h3 style={{ margin: 0, fontSize: "1.125rem", fontWeight: 600 }}>No Padding Card</h3>
+						<h3 style={{ margin: 0, fontSize: "1.125rem", fontWeight: 600 }}>
+							No Padding Card
+						</h3>
 					</CardHeader>
 				</div>
 				<div
 					style={{
-						backgroundImage: "linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%)",
+						backgroundImage:
+							"linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%)",
 						backgroundSize: "20px 20px",
 						backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px",
 						height: "100px",
@@ -158,9 +172,20 @@ export const SimpleContent: Story = {
 		padding: "md",
 		children: (
 			<div>
-				<h4 style={{ margin: "0 0 0.5rem 0", fontSize: "1rem", fontWeight: 600 }}>Simple Card</h4>
-				<p style={{ margin: 0, fontSize: "0.875rem", color: "var(--color-text-secondary)" }}>
-					Sometimes you just need a simple card without the header/content/footer structure.
+				<h4
+					style={{ margin: "0 0 0.5rem 0", fontSize: "1rem", fontWeight: 600 }}
+				>
+					Simple Card
+				</h4>
+				<p
+					style={{
+						margin: 0,
+						fontSize: "0.875rem",
+						color: "var(--color-text-secondary)",
+					}}
+				>
+					Sometimes you just need a simple card without the
+					header/content/footer structure.
 				</p>
 			</div>
 		),
