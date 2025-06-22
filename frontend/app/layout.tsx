@@ -4,8 +4,8 @@ import "./globals.css";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
-  title: "LiveJournal",
-  description: "Personal journal and thoughts",
+  title: "Idle Data - Modern LiveJournal",
+  description: "A modern web application with uptime monitoring and journal features, built with Encore.dev and Next.js",
 };
 
 export default function RootLayout({

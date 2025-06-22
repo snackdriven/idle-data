@@ -7,12 +7,17 @@
     "@biomejs/biome": "^1.9.4",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/luxon": "^3.6.2",
     "@types/node": "^24.0.3",
     "@types/react": "19.1.8",
     "@types/react-dom": "^19.1.6",
     "husky": "^8.0.0",
-    "tsx": "^4.7.0"
+    "jsdom": "^26.1.0",
+    "tsx": "^4.7.0",
+    "vitest": "^3.2.4"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -33,6 +38,9 @@
     "format": "biome format .",
     "server": "tsx src/api/server.ts",
     "prepare": "husky install",
-    "test": "biome check ."
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:run": "vitest run"
   }
 }

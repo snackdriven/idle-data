@@ -93,3 +93,37 @@ The frontend uses a modern component-based architecture with:
 - Generated code in `encore.gen/` should never be manually edited - regenerate with `npm run gen`
 - All UI components follow accessibility guidelines with ARIA labels and keyboard navigation
 - Component library includes Storybook stories for development and documentation
+
+## Environment Variables
+
+Copy `.env.example` to `.env` and configure the following variables:
+
+- `NODE_ENV`: Development environment (development/production)
+- `SLACK_WEBHOOK_URL`: Webhook URL for Slack notifications (set via `encore secret set`)
+- Database configuration is handled automatically by Encore
+
+## Testing
+
+The project uses Vitest for testing with React Testing Library:
+
+```bash
+# Run tests
+npm test
+
+# Run tests with UI
+npm run test:ui
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run tests once (CI mode)
+npm run test:run
+```
+
+## Code Quality
+
+- **TypeScript**: Strict mode enabled with comprehensive type checking
+- **Biome**: Used for formatting and linting
+- **Husky**: Git hooks for pre-commit quality checks
+- **Error Boundaries**: Comprehensive error handling throughout the application
+- **Testing**: Unit tests for all components with good coverage
