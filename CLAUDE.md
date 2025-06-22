@@ -77,7 +77,7 @@ The frontend uses a modern component-based architecture with:
 - **Design System**: Located in `frontend/app/styles/`
   - `variables.css` - CSS custom properties with semantic color scales, fluid typography, responsive spacing
   - `components.css` - Component styles using design tokens
-  - `globals.css` - Global styles and legacy LiveJournal theming
+  - `globals.css` - Global styles and legacy journal theming
 
 - **Theme System**: Dark/light mode support via `ThemeContext`
   - Automatic system preference detection

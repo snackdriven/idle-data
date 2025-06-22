@@ -18,18 +18,18 @@ function ButtonComponent({
 }: ButtonProps) {
 	return (
 		<button
-			className={`lj-button lj-button-${variant} lj-button-${size} ${
+			className={`app-button app-button-${variant} app-button-${size} ${
 				isLoading ? "loading" : ""
 			} ${className}`}
 			disabled={isLoading || disabled}
 			{...props}
 		>
 			{isLoading ? (
-				<span className="lj-button-loader" aria-hidden="true">
+				<span className="app-button-loader" aria-hidden="true">
 					●
 				</span>
 			) : null}
-			<span className={isLoading ? "lj-button-text-loading" : ""}>
+			<span className={isLoading ? "app-button-text-loading" : ""}>
 				{children}
 			</span>
 		</button>

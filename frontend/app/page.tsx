@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Client from "@/app/lib/client";
 import type { journal } from "@/app/lib/client";
 import type { FC } from "react";
-import { useEffect, useState, useId } from "react";
+import { useEffect, useState, useId, lazy, Suspense } from "react";
 import { DateTime } from "luxon";
 import { Header } from "./components/layout/Header";
 import { UserHeader } from "./components/layout/UserHeader";
@@ -16,7 +16,13 @@ import {
 	Select,
 	Card,
 	CardContent,
+	LoadingSkeleton,
 } from "./components/ui";
+
+// Lazy load heavy components
+const Calendar = lazy(() => import("./components/Calendar"));
+const PageSummary = lazy(() => import("./components/PageSummary"));
+const Tags = lazy(() => import("./components/Tags"));
 
 function App() {
 	const [baseURL, setBaseURL] = useState("");
@@ -25,15 +31,15 @@ function App() {
 	if (!baseURL) return null;
 
 	return (
-		<div className="lj-container">
+		<div className="app-container">
 			<Header />
 			<UserHeader />
 			<Navigation activePage="recent" />
-			<div className="lj-main">
-				<div className="lj-content">
+			<div className="app-main">
+				<div className="app-content">
 					<JournalEntries client={new Client(baseURL)} />
 				</div>
-				<div className="lj-sidebar">
+				<div className="app-sidebar">
 					<Sidebar client={new Client(baseURL)} />
 				</div>
 			</div>
@@ -255,7 +261,7 @@ const JournalEntry: FC<{ entry: journal.JournalEntry; client: Client }> = ({
 
 	if (isEditing) {
 		return (
-			<div className="lj-entry">
+			<div className="app-entry">
 				<form onSubmit={handleUpdate}>
 					<input
 						type="text"
@@ -300,26 +306,26 @@ const JournalEntry: FC<{ entry: journal.JournalEntry; client: Client }> = ({
 	}
 
 	return (
-		<div className="lj-entry">
-			<div className="lj-entry-header">
-				<div className="lj-entry-date">
+		<div className="app-entry">
+			<div className="app-entry-header">
+				<div className="app-entry-date">
 					{createdAt.toFormat("EEEE, MMMM d, yyyy")}
 				</div>
 				{entry.subject && (
-					<div className="lj-entry-subject">🔒 {entry.subject}</div>
+					<div className="app-entry-subject">🔒 {entry.subject}</div>
 				)}
-				<div className="lj-entry-meta">
+				<div className="app-entry-meta">
 					{entry.mood && (
-						<span className="lj-mood">Current mood: {entry.mood}</span>
+						<span className="app-mood">Current mood: {entry.mood}</span>
 					)}
 					{entry.mood && entry.music && <span> | </span>}
 					{entry.music && (
-						<span className="lj-music">Current music: {entry.music}</span>
+						<span className="app-music">Current music: {entry.music}</span>
 					)}
 				</div>
 			</div>
 
-			<div className="lj-entry-body">
+			<div className="app-entry-body">
 				{entry.body.split("\n").map((paragraph, paragraphIndex) => (
 					<p
 						key={`paragraph-${entry.id}-${paragraphIndex}`}
@@ -331,7 +337,7 @@ const JournalEntry: FC<{ entry: journal.JournalEntry; client: Client }> = ({
 			</div>
 
 			<div
-				className="lj-entry-actions"
+				className="app-entry-actions"
 				style={{ display: "flex", gap: "var(--space-2)", flexWrap: "wrap" }}
 			>
 				<Button
@@ -389,140 +395,18 @@ const Sidebar: FC<{ client: Client }> = ({ client }) => {
 
 	return (
 		<div>
-			<Calendar entries={entries?.entries || []} />
-			<PageSummary entries={entries?.entries || []} />
-			<Tags entries={entries?.entries || []} />
+			<Suspense fallback={<LoadingSkeleton height="200px" />}>
+				<Calendar entries={entries?.entries || []} />
+			</Suspense>
+			<Suspense fallback={<LoadingSkeleton height="150px" />}>
+				<PageSummary entries={entries?.entries || []} />
+			</Suspense>
+			<Suspense fallback={<LoadingSkeleton height="100px" />}>
+				<Tags />
+			</Suspense>
 		</div>
 	);
 };
 
-const Calendar: FC<{ entries: journal.JournalEntry[] }> = ({ entries }) => {
-	const now = DateTime.now();
-	const month = now.month;
-	const year = now.year;
-
-	// Get all days in current month
-	const daysInMonth = now.daysInMonth || 30;
-	const firstDayOfMonth = DateTime.fromObject({ year, month, day: 1 });
-	const startDayOfWeek = firstDayOfMonth.weekday % 7; // Convert to 0-6 where 0 is Sunday
-
-	// Create array of all days to display
-	const calendarDays: (number | null)[] = [];
-
-	// Add empty cells for days before month starts
-	for (let i = 0; i < startDayOfWeek; i++) {
-		calendarDays.push(null);
-	}
-
-	// Add all days of the month
-	for (let day = 1; day <= daysInMonth; day++) {
-		calendarDays.push(day);
-	}
-
-	// Get entry dates for this month
-	const entryDates = new Set(
-		entries
-			.map((entry) => DateTime.fromISO(entry.createdAt))
-			.filter((date) => date.month === month && date.year === year)
-			.map((date) => date.day),
-	);
-
-	const monthName = now.toFormat("MMMM yyyy");
-
-	return (
-		<div className="lj-widget">
-			<div className="lj-widget-header">{monthName}</div>
-			<div className="lj-widget-content lj-calendar">
-				<table>
-					<thead>
-						<tr>
-							<th>S</th>
-							<th>M</th>
-							<th>T</th>
-							<th>W</th>
-							<th>T</th>
-							<th>F</th>
-							<th>S</th>
-						</tr>
-					</thead>
-					<tbody>
-						{Array.from(
-							{ length: Math.ceil(calendarDays.length / 7) },
-							(_, weekIndex) => {
-								const weekStart = weekIndex * 7;
-								const weekEnd = Math.min(
-									weekStart + 6,
-									calendarDays.length - 1,
-								);
-								const weekKey = `week-${year}-${month}-${weekStart}-${weekEnd}`;
-
-								return (
-									<tr key={weekKey}>
-										{Array.from({ length: 7 }, (_, dayIndex) => {
-											const arrayIndex = weekIndex * 7 + dayIndex;
-											const day = calendarDays[arrayIndex];
-											const isToday = day === now.day;
-											const hasEntry = day ? entryDates.has(day) : false;
-
-											let className = "";
-											if (isToday) className += " today";
-											if (hasEntry) className += " has-entry";
-
-											return (
-												<td
-													key={`day-${year}-${month}-${day || `empty-${arrayIndex}`}`}
-													className={className}
-												>
-													{day || ""}
-												</td>
-											);
-										})}
-									</tr>
-								);
-							},
-						)}
-					</tbody>
-				</table>
-			</div>
-		</div>
-	);
-};
-
-const PageSummary: FC<{ entries: journal.JournalEntry[] }> = ({ entries }) => {
-	const recentEntries = entries.slice(0, 10);
-
-	return (
-		<div className="lj-widget">
-			<div className="lj-widget-header">Page Summary</div>
-			<div className="lj-widget-content lj-page-summary">
-				<ul>
-					{recentEntries.map((entry) => {
-						const subject = entry.subject || "(no subject)";
-						return (
-							<li key={entry.id}>
-								<a href={`#entry-${entry.id}`}>{subject} — 1 comment</a>
-							</li>
-						);
-					})}
-				</ul>
-			</div>
-		</div>
-	);
-};
-
-const Tags: FC<{ entries: journal.JournalEntry[] }> = () => {
-	// For now, we'll just show static tags like in the image
-	return (
-		<div className="lj-widget">
-			<div className="lj-widget-header">Tags</div>
-			<div className="lj-widget-content">
-				<div style={{ fontSize: "11px" }}>
-					I feel like I'm waiting for something better watch out livejournal
-					welcome whatstapp
-				</div>
-			</div>
-		</div>
-	);
-};
 
 export default App;

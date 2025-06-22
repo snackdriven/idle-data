@@ -12,15 +12,15 @@ body {
 	color: #000000;
 }
 
-/* Top header with LiveJournal logo and navigation */
-.lj-top-header {
+/* Top header with site logo and navigation */
+.site-top-header {
 	background: linear-gradient(to bottom, #6b4ed3, #be2eb7);
 	color: white;
 	padding: 8px 16px;
 	border-bottom: 1px solid #237aa7;
 }
 
-.lj-header-content {
+.app-header-content {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -28,44 +28,44 @@ body {
 	margin: 0 auto;
 }
 
-.lj-logo {
+.app-logo {
 	display: flex;
 	align-items: center;
 }
 
-.lj-logo-text {
+.app-logo-text {
 	font-size: 16px;
 	font-weight: bold;
 	color: white;
 	margin-right: 8px;
 }
 
-.lj-top-nav {
+.app-top-nav {
 	display: flex;
 	gap: 20px;
 	flex: 1;
 	justify-content: center;
 }
 
-.lj-top-nav a {
+.app-top-nav a {
 	color: white;
 	text-decoration: none;
 	font-size: 11px;
 	font-weight: bold;
 }
 
-.lj-top-nav a:hover {
+.app-top-nav a:hover {
 	text-decoration: underline;
 }
 
-.lj-user-section {
+.app-user-section {
 	display: flex;
 	align-items: center;
 	gap: 12px;
 	font-size: 11px;
 }
 
-.lj-post-button {
+.app-post-button {
 	background-color: #5bc0de;
 	color: white;
 	padding: 4px 8px;
@@ -74,55 +74,55 @@ body {
 	font-weight: bold;
 }
 
-.lj-post-button:hover {
+.app-post-button:hover {
 	background-color: #8631d5;
 }
 
-.lj-notifications,
-.lj-search {
+.app-notifications,
+.app-search {
 	cursor: pointer;
 	font-size: 14px;
 }
 
-.lj-username-top {
+.app-username-top {
 	color: white;
 	font-weight: bold;
 	cursor: pointer;
 }
 
 /* User header section */
-.lj-user-header {
+.app-user-header {
 	background-color: #d4edf4;
 	padding: 4px 16px;
 	font-size: 11px;
 	border-bottom: 1px solid #b8d4f1;
 }
 
-.lj-username {
+.app-username {
 	font-weight: bold;
 	color: #000;
 	margin-right: 8px;
 }
 
-.lj-tagline {
+.app-tagline {
 	color: #666;
 	font-style: italic;
 }
 
 /* Navigation tabs */
-.lj-nav {
+.app-nav {
 	background-color: #b8d4f1;
 	border-bottom: 1px solid #7db3e8;
 	padding: 0 16px;
 }
 
-.lj-nav-tabs {
+.app-nav-tabs {
 	display: flex;
 	max-width: 1000px;
 	margin: 0 auto;
 }
 
-.lj-nav-tabs a {
+.app-nav-tabs a {
 	color: #0066cc;
 	text-decoration: none;
 	padding: 8px 16px;
@@ -131,160 +131,160 @@ body {
 	border-bottom: 2px solid transparent;
 }
 
-.lj-nav-tabs a:hover {
+.app-nav-tabs a:hover {
 	background-color: #a8c4e1;
 }
 
-.lj-nav-tabs a.active {
+.app-nav-tabs a.active {
 	background-color: white;
 	border-bottom: 2px solid #4eb3d3;
 	color: #000;
 }
 
-.lj-container {
+.app-container {
 	max-width: 1000px;
 	margin: 0 auto;
 	background-color: white;
 }
 
-.lj-main {
+.app-main {
 	display: flex;
 	gap: 16px;
 	padding: 16px;
 }
 
-.lj-content {
+.app-content {
 	flex: 1;
 	min-width: 0;
 }
 
-.lj-sidebar {
+.app-sidebar {
 	width: 200px;
 	flex-shrink: 0;
 }
 
-.lj-entry {
+.app-entry {
 	margin-bottom: 24px;
 	border-bottom: 1px solid #e0e0e0;
 	padding-bottom: 16px;
 }
 
-.lj-entry:last-child {
+.app-entry:last-child {
 	border-bottom: none;
 }
 
-.lj-entry-header {
+.app-entry-header {
 	margin-bottom: 8px;
 }
 
-.lj-entry-date {
+.app-entry-date {
 	color: #666;
 	font-size: 11px;
 	font-weight: bold;
 }
 
-.lj-entry-subject {
+.app-entry-subject {
 	font-size: 14px;
 	font-weight: bold;
 	margin: 4px 0;
 }
 
-.lj-entry-meta {
+.app-entry-meta {
 	font-size: 11px;
 	color: #666;
 	margin: 4px 0;
 }
 
-.lj-entry-body {
+.app-entry-body {
 	line-height: 1.4;
 	margin: 8px 0;
 }
 
-.lj-entry-actions {
+.app-entry-actions {
 	font-size: 11px;
 	margin-top: 8px;
 }
 
-.lj-entry-actions a {
+.app-entry-actions a {
 	color: #0066cc;
 	text-decoration: none;
 	margin-right: 12px;
 }
 
-.lj-entry-actions a:hover {
+.app-entry-actions a:hover {
 	text-decoration: underline;
 }
 
-.lj-widget {
+.app-widget {
 	background-color: #f8f8f8;
 	border: 1px solid #d0d0d0;
 	margin-bottom: 16px;
 	font-size: 11px;
 }
 
-.lj-widget-header {
+.app-widget-header {
 	background-color: #e8e8e8;
 	padding: 4px 8px;
 	font-weight: bold;
 	border-bottom: 1px solid #d0d0d0;
 }
 
-.lj-widget-content {
+.app-widget-content {
 	padding: 8px;
 }
 
-.lj-calendar {
+.app-calendar {
 	width: 100%;
 }
 
-.lj-calendar table {
+.app-calendar table {
 	width: 100%;
 	border-collapse: collapse;
 }
 
-.lj-calendar th,
-.lj-calendar td {
+.app-calendar th,
+.app-calendar td {
 	text-align: center;
 	padding: 2px;
 	width: 14.28%;
 }
 
-.lj-calendar th {
+.app-calendar th {
 	background-color: #e8e8e8;
 	font-weight: bold;
 	border: 1px solid #d0d0d0;
 }
 
-.lj-calendar td {
+.app-calendar td {
 	border: 1px solid #e0e0e0;
 	height: 24px;
 	vertical-align: middle;
 }
 
-.lj-calendar .has-entry {
+.app-calendar .has-entry {
 	background-color: #e8f4fd;
 	font-weight: bold;
 }
 
-.lj-calendar .today {
+.app-calendar .today {
 	background-color: #ffff99;
 }
 
-.lj-form {
+.app-form {
 	background-color: #f8f8f8;
 	border: 1px solid #d0d0d0;
 	padding: 16px;
 	margin-bottom: 24px;
 }
 
-.lj-form h3 {
+.app-form h3 {
 	margin: 0 0 12px 0;
 	font-size: 12px;
 }
 
-.lj-form input,
-.lj-form textarea,
-.lj-form select {
+.app-form input,
+.app-form textarea,
+.app-form select {
 	width: 100%;
 	padding: 4px;
 	font-family: inherit;
@@ -293,12 +293,12 @@ body {
 	margin-bottom: 8px;
 }
 
-.lj-form textarea {
+.app-form textarea {
 	height: 100px;
 	resize: vertical;
 }
 
-.lj-form button {
+.app-form button {
 	background-color: #4eb3d3;
 	color: white;
 	border: none;
@@ -307,15 +307,15 @@ body {
 	cursor: pointer;
 }
 
-.lj-form button:hover {
+.app-form button:hover {
 	background-color: #2e8ebe;
 }
 
-.lj-tags {
+.app-tags {
 	margin-top: 8px;
 }
 
-.lj-tag {
+.app-tag {
 	background-color: #e8f4fd;
 	border: 1px solid #b8d4f1;
 	padding: 2px 6px;
@@ -326,20 +326,20 @@ body {
 	cursor: pointer;
 }
 
-.lj-tag:hover {
+.app-tag:hover {
 	background-color: #d0e8ff;
 }
 
-.lj-mood {
+.app-mood {
 	font-style: italic;
 	color: #666;
 }
 
-.lj-music {
+.app-music {
 	color: #666;
 }
 
-.lj-usericon {
+.app-usericon {
 	width: 16px;
 	height: 16px;
 	margin-right: 4px;
@@ -347,47 +347,47 @@ body {
 }
 
 /* Page summary in sidebar */
-.lj-page-summary ul {
+.app-page-summary ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
-.lj-page-summary li {
+.app-page-summary li {
 	margin-bottom: 2px;
 }
 
-.lj-page-summary a {
+.app-page-summary a {
 	color: #0066cc;
 	text-decoration: none;
 }
 
-.lj-page-summary a:hover {
+.app-page-summary a:hover {
 	text-decoration: underline;
 }
 
 /* Profile page styles */
-.lj-profile-main {
+.app-profile-main {
 	display: flex;
 	gap: 16px;
 	padding: 16px;
 }
 
-.lj-profile-content {
+.app-profile-content {
 	flex: 1;
 	min-width: 0;
 }
 
-.lj-profile-sidebar {
+.app-profile-sidebar {
 	width: 250px;
 	flex-shrink: 0;
 }
 
-.lj-profile-info {
+.app-profile-info {
 	background-color: white;
 }
 
-.lj-profile-header {
+.app-profile-header {
 	display: flex;
 	align-items: flex-start;
 	gap: 16px;
@@ -395,11 +395,11 @@ body {
 	border-bottom: 1px solid #e0e0e0;
 }
 
-.lj-profile-avatar {
+.app-profile-avatar {
 	flex-shrink: 0;
 }
 
-.lj-avatar-placeholder {
+.app-avatar-placeholder {
 	width: 100px;
 	height: 100px;
 	background-color: #f0f0f0;
@@ -409,7 +409,7 @@ body {
 	justify-content: center;
 }
 
-.lj-avatar-circle {
+.app-avatar-circle {
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
@@ -419,48 +419,48 @@ body {
 	justify-content: center;
 }
 
-.lj-avatar-initial {
+.app-avatar-initial {
 	font-size: 32px;
 	font-weight: bold;
 	color: #4eb3d3;
 }
 
-.lj-profile-details {
+.app-profile-details {
 	flex: 1;
 }
 
-.lj-profile-name {
+.app-profile-name {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 	margin-bottom: 8px;
 }
 
-.lj-usericon {
+.app-usericon {
 	color: #4eb3d3;
 	font-size: 16px;
 }
 
-.lj-profile-username {
+.app-profile-username {
 	font-size: 18px;
 	font-weight: bold;
 	color: #4eb3d3;
 }
 
-.lj-profile-motto {
+.app-profile-motto {
 	color: #666;
 	font-style: italic;
 	margin-bottom: 12px;
 	font-size: 14px;
 }
 
-.lj-profile-actions {
+.app-profile-actions {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 }
 
-.lj-pro-badge {
+.app-pro-badge {
 	background-color: #ff6b6b;
 	color: white;
 	padding: 2px 6px;
@@ -469,21 +469,21 @@ body {
 	border-radius: 3px;
 }
 
-.lj-profile-link {
+.app-profile-link {
 	color: #4eb3d3;
 	text-decoration: none;
 	font-size: 12px;
 }
 
-.lj-profile-link:hover {
+.app-profile-link:hover {
 	text-decoration: underline;
 }
 
-.lj-profile-settings {
+.app-profile-settings {
 	flex-shrink: 0;
 }
 
-.lj-settings-icon {
+.app-settings-icon {
 	background: none;
 	border: none;
 	font-size: 18px;
@@ -491,14 +491,14 @@ body {
 	padding: 4px;
 }
 
-.lj-profile-tabs {
+.app-profile-tabs {
 	display: flex;
 	background-color: #f8f8f8;
 	border-bottom: 1px solid #e0e0e0;
 	overflow-x: auto;
 }
 
-.lj-tab {
+.app-tab {
 	color: #0066cc;
 	text-decoration: none;
 	padding: 12px 16px;
@@ -508,42 +508,42 @@ body {
 	white-space: nowrap;
 }
 
-.lj-tab:hover {
+.app-tab:hover {
 	background-color: #e8e8e8;
 }
 
-.lj-tab.active {
+.app-tab.active {
 	background-color: white;
 	border-bottom: 2px solid #4eb3d3;
 	color: #000;
 }
 
-.lj-profile-info-section {
+.app-profile-info-section {
 	padding: 16px;
 }
 
-.lj-info-row {
+.app-info-row {
 	display: flex;
 	margin-bottom: 8px;
 	font-size: 12px;
 }
 
-.lj-info-label {
+.app-info-label {
 	font-weight: bold;
 	color: #666;
 	width: 140px;
 	flex-shrink: 0;
 }
 
-.lj-info-value {
+.app-info-value {
 	color: #000;
 }
 
-.lj-profile-stats {
+.app-profile-stats {
 	margin-top: 0;
 }
 
-.lj-stat-item {
+.app-stat-item {
 	display: flex;
 	align-items: center;
 	gap: 12px;
@@ -551,40 +551,40 @@ body {
 	border-bottom: 1px solid #f0f0f0;
 }
 
-.lj-stat-item:last-child {
+.app-stat-item:last-child {
 	border-bottom: none;
 }
 
-.lj-stat-icon {
+.app-stat-icon {
 	font-size: 16px;
 	width: 20px;
 	text-align: center;
 }
 
-.lj-stat-details {
+.app-stat-details {
 	flex: 1;
 }
 
-.lj-stat-number {
+.app-stat-number {
 	font-weight: bold;
 	color: #4eb3d3;
 	font-size: 14px;
 	line-height: 1.2;
 }
 
-.lj-stat-label {
+.app-stat-label {
 	color: #666;
 	font-size: 11px;
 	line-height: 1.2;
 }
 
 /* User dropdown menu */
-.lj-user-dropdown {
+.app-user-dropdown {
 	position: relative;
 	display: inline-block;
 }
 
-.lj-dropdown-menu {
+.app-dropdown-menu {
 	display: none;
 	position: absolute;
 	top: 100%;
@@ -597,11 +597,11 @@ body {
 	min-width: 120px;
 }
 
-.lj-user-dropdown:hover .lj-dropdown-menu {
+.app-user-dropdown:hover .app-dropdown-menu {
 	display: block;
 }
 
-.lj-dropdown-menu a {
+.app-dropdown-menu a {
 	display: block;
 	padding: 8px 12px;
 	color: #333;
@@ -610,16 +610,16 @@ body {
 	border-bottom: 1px solid #f0f0f0;
 }
 
-.lj-dropdown-menu a:last-child {
+.app-dropdown-menu a:last-child {
 	border-bottom: none;
 }
 
-.lj-dropdown-menu a:hover {
+.app-dropdown-menu a:hover {
 	background-color: #f8f8f8;
 }
 
 /* Make username in user header clickable */
-.lj-user-header .lj-username:hover {
+.app-user-header .app-username:hover {
 	text-decoration: underline;
 	cursor: pointer;
 }

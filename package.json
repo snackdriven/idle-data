@@ -14,8 +14,6 @@
 		"@types/node": "^24.0.3",
 		"@types/react": "19.1.8",
 		"@types/react-dom": "^19.1.6",
-		"commitizen": "^4.3.1",
-		"cz-conventional-changelog": "^3.3.0",
 		"husky": "^8.0.0",
 		"jsdom": "^26.1.0",
 		"tsx": "^4.7.0",
@@ -35,20 +33,14 @@
 		"react-dom": "^19.1.0"
 	},
 	"scripts": {
-		"dev": "vite",
+		"dev": "encore run",
 		"lint": "biome check .",
 		"format": "biome format .",
-		"server": "tsx src/api/server.ts",
+		"gen": "encore gen client --output=./frontend/app/lib/client.ts --lang=typescript",
 		"prepare": "husky install",
 		"test": "vitest",
 		"test:ui": "vitest --ui",
 		"test:coverage": "vitest --coverage",
-		"test:run": "vitest run",
-		"commit": "cz"
-	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		}
+		"test:run": "vitest run"
 	}
 }

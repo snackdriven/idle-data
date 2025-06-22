@@ -1,5 +1,5 @@
 /* Button styles */
-.lj-button {
+.app-button {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -13,64 +13,64 @@
 	outline: none;
 }
 
-.lj-button:focus-visible {
+.app-button:focus-visible {
 	box-shadow: 0 0 0 2px var(--color-bg-primary), 0 0 0 4px var(--color-primary);
 }
 
-.lj-button:disabled {
+.app-button:disabled {
 	opacity: 0.6;
 	cursor: not-allowed;
 }
 
-.lj-button-primary {
+.app-button-primary {
 	background-color: var(--color-primary-500);
 	color: var(--color-text-inverse);
 }
 
-.lj-button-primary:hover:not(:disabled) {
+.app-button-primary:hover:not(:disabled) {
 	background-color: var(--color-primary-600);
 }
 
-.lj-button-secondary {
+.app-button-secondary {
 	background-color: var(--color-bg-secondary);
 	color: var(--color-text);
 	border: 1px solid var(--color-border);
 }
 
-.lj-button-secondary:hover:not(:disabled) {
+.app-button-secondary:hover:not(:disabled) {
 	background-color: var(--color-bg-accent);
 }
 
-.lj-button-danger {
+.app-button-danger {
 	background-color: var(--color-danger);
 	color: var(--color-text-inverse);
 }
 
-.lj-button-danger:hover:not(:disabled) {
+.app-button-danger:hover:not(:disabled) {
 	opacity: 0.9;
 }
 
-.lj-button-sm {
+.app-button-sm {
 	padding: var(--space-1) var(--space-2);
 	font-size: var(--font-size-xs);
 }
 
-.lj-button-lg {
+.app-button-lg {
 	padding: var(--space-3) var(--space-5);
 	font-size: var(--font-size-lg);
 }
 
-.lj-button.loading {
+.app-button.loading {
 	position: relative;
 	cursor: wait;
 }
 
-.lj-button-loader {
+.app-button-loader {
 	animation: button-loader 1s infinite;
 	margin-right: var(--space-2);
 }
 
-.lj-button-text-loading {
+.app-button-text-loading {
 	opacity: 0.7;
 }
 
@@ -87,22 +87,22 @@
 }
 
 /* Input styles */
-.lj-input-wrapper {
+.app-input-wrapper {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-1);
 }
 
-.lj-input-wrapper.full-width {
+.app-input-wrapper.full-width {
 	width: 100%;
 }
 
-.lj-input-label {
+.app-input-label {
 	font-size: var(--font-size-sm);
 	color: var(--color-text-secondary);
 }
 
-.lj-input {
+.app-input {
 	padding: var(--space-2);
 	font-size: var(--font-size-base);
 	border: 1px solid var(--color-border);
@@ -112,23 +112,23 @@
 	transition: border-color var(--transition-base);
 }
 
-.lj-input:focus {
+.app-input:focus {
 	outline: none;
 	border-color: var(--color-primary);
 	box-shadow: 0 0 0 1px var(--color-primary);
 }
 
-.lj-input.error {
+.app-input.error {
 	border-color: var(--color-danger);
 }
 
-.lj-input-error {
+.app-input-error {
 	font-size: var(--font-size-xs);
 	color: var(--color-danger);
 }
 
 /* TextArea styles */
-.lj-textarea {
+.app-textarea {
 	padding: var(--space-2);
 	font-size: var(--font-size-base);
 	border: 1px solid var(--color-border);
@@ -140,14 +140,14 @@
 	resize: vertical;
 }
 
-.lj-textarea:focus {
+.app-textarea:focus {
 	outline: none;
 	border-color: var(--color-primary);
 	box-shadow: 0 0 0 1px var(--color-primary);
 }
 
 /* Select styles */
-.lj-select {
+.app-select {
 	padding: var(--space-2);
 	font-size: var(--font-size-base);
 	border: 1px solid var(--color-border);
@@ -158,14 +158,14 @@
 	cursor: pointer;
 }
 
-.lj-select:focus {
+.app-select:focus {
 	outline: none;
 	border-color: var(--color-primary);
 	box-shadow: 0 0 0 1px var(--color-primary);
 }
 
 /* Loading Skeleton styles */
-.lj-skeleton {
+.app-skeleton {
 	background: linear-gradient(
 		90deg,
 		var(--color-bg-secondary) 25%,
@@ -176,17 +176,17 @@
 	animation: skeleton-loading 1.4s ease infinite;
 }
 
-.lj-skeleton-text {
+.app-skeleton-text {
 	height: 1em;
 	margin-bottom: 0.5em;
 	border-radius: var(--radius-sm);
 }
 
-.lj-skeleton-circular {
+.app-skeleton-circular {
 	border-radius: var(--radius-full);
 }
 
-.lj-skeleton-rectangular {
+.app-skeleton-rectangular {
 	border-radius: var(--radius-base);
 }
 

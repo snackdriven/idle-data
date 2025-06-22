@@ -4,60 +4,60 @@ import { ThemeToggle } from "../ui/ThemeToggle";
 
 export const Header: FC = () => {
 	return (
-		<header className="lj-top-header">
-			<div className="lj-header-content">
-				<div className="lj-logo">
-					<Link href="/" className="lj-logo-link">
-						<span className="lj-logo-text">LIVEJOURNAL</span>
+		<header className="app-top-header">
+			<div className="app-header-content">
+				<div className="app-logo">
+					<Link href="/" className="app-logo-link">
+						<span className="app-logo-text">JOURNAL APP</span>
 					</Link>
 				</div>
-				<nav className="lj-top-nav">
-					<Link href="/find" className="lj-nav-link">
+				<nav className="app-top-nav">
+					<Link href="/find" className="app-nav-link">
 						FIND MORE
 					</Link>
-					<Link href="/friends" className="lj-nav-link">
+					<Link href="/friends" className="app-nav-link">
 						FRIENDS FEED
 					</Link>
-					<Link href="/shop" className="lj-nav-link">
+					<Link href="/shop" className="app-nav-link">
 						SHOP
 					</Link>
 				</nav>
-				<div className="lj-user-section">
-					<Link href="/" className="lj-post-button">
+				<div className="app-user-section">
+					<Link href="/" className="app-post-button">
 						POST NEW ENTRY
 					</Link>
-					<button className="lj-notifications" aria-label="View notifications">
+					<button className="app-notifications" aria-label="View notifications">
 						<span aria-hidden="true">🔔</span>
 					</button>
-					<div className="lj-user-dropdown">
+					<div className="app-user-dropdown">
 						<button
-							className="lj-username-top"
+							className="app-username-top"
 							aria-haspopup="true"
 							aria-expanded="false"
 						>
-							HELLASPOOKY <span aria-hidden="true">▼</span>
+							USER123 <span aria-hidden="true">▼</span>
 						</button>
-						<div className="lj-dropdown-menu" role="menu">
+						<div className="app-dropdown-menu" role="menu">
 							<Link
 								href="/profile"
-								className="lj-dropdown-item"
+								className="app-dropdown-item"
 								role="menuitem"
 							>
 								View Profile
 							</Link>
 							<Link
 								href="/settings"
-								className="lj-dropdown-item"
+								className="app-dropdown-item"
 								role="menuitem"
 							>
 								Settings
 							</Link>
-							<Link href="/logout" className="lj-dropdown-item" role="menuitem">
+							<Link href="/logout" className="app-dropdown-item" role="menuitem">
 								Logout
 							</Link>
 						</div>
 					</div>
-					<button className="lj-search" aria-label="Search">
+					<button className="app-search" aria-label="Search">
 						<span aria-hidden="true">🔍</span>
 					</button>
 					<ThemeToggle size="sm" variant="icon" />

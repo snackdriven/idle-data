@@ -109,7 +109,7 @@ To run tests, configure the `test` command in your `package.json` to the test ru
 encore test
 ```
 
-# Idle Data - LiveJournal-style Web Application
+# Idle Data - Journal-style Web Application
 
 A modern web application built with Encore.ts, Next.js, and TypeScript, featuring a responsive UI with dark mode support and optimized performance.
 

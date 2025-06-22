@@ -2,36 +2,36 @@ import type { FC } from "react";
 
 export const Header: FC = () => {
 	return (
-		<div className="lj-top-header">
-			<div className="lj-header-content">
-				<div className="lj-logo">
+		<div className="app-top-header">
+			<div className="app-header-content">
+				<div className="app-logo">
 					<a href="/" style={{ textDecoration: "none", color: "white" }}>
-						<span className="lj-logo-text">LIVEJOURNAL</span>
+						<span className="app-logo-text">JOURNAL APP</span>
 					</a>
 				</div>
-				<div className="lj-top-nav">
+				<div className="app-top-nav">
 					<a href="/find">FIND MORE</a>
 					<a href="/friends">FRIENDS FEED</a>
 					<a href="/shop">SHOP</a>
 				</div>
-				<div className="lj-user-section">
+				<div className="app-user-section">
 					<a
 						href="/"
-						className="lj-post-button"
+						className="app-post-button"
 						style={{ textDecoration: "none", color: "white" }}
 					>
 						POST NEW ENTRY
 					</a>
-					<span className="lj-notifications">🔔</span>
-					<div className="lj-user-dropdown">
-						<span className="lj-username-top">HELLASPOOKY ▼</span>
-						<div className="lj-dropdown-menu">
+					<span className="app-notifications">🔔</span>
+					<div className="app-user-dropdown">
+						<span className="app-username-top">USER123 ▼</span>
+						<div className="app-dropdown-menu">
 							<a href="/profile">View Profile</a>
 							<a href="/settings">Settings</a>
 							<a href="/logout">Logout</a>
 						</div>
 					</div>
-					<span className="lj-search">🔍</span>
+					<span className="app-search">🔍</span>
 				</div>
 			</div>
 		</div>
@@ -40,11 +40,11 @@ export const Header: FC = () => {
 
 export const UserHeader: FC = () => {
 	return (
-		<div className="lj-user-header">
+		<div className="app-user-header">
 			<a href="/profile" style={{ textDecoration: "none", color: "inherit" }}>
-				<span className="lj-username">HELLASPOOKY</span>
+				<span className="app-username">USER123</span>
 			</a>
-			<span className="lj-tagline">you speak only in riddles and loss</span>
+			<span className="app-tagline">Welcome to the application</span>
 		</div>
 	);
 };
@@ -61,8 +61,8 @@ interface NavigationProps {
 
 export const Navigation: FC<NavigationProps> = ({ activePage = "recent" }) => {
 	return (
-		<div className="lj-nav">
-			<div className="lj-nav-tabs">
+		<div className="app-nav">
+			<div className="app-nav-tabs">
 				<a href="/" className={activePage === "recent" ? "active" : ""}>
 					RECENT ENTRIES
 				</a>

@@ -21,17 +21,17 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 
 		return (
 			<div
-				className={`lj-select-wrapper ${fullWidth ? "full-width" : ""} ${className}`}
+				className={`app-select-wrapper ${fullWidth ? "full-width" : ""} ${className}`}
 			>
 				{label && (
-					<label htmlFor={selectId} className="lj-select-label">
+					<label htmlFor={selectId} className="app-select-label">
 						{label}
 					</label>
 				)}
 				<select
 					ref={ref}
 					id={selectId}
-					className={`lj-select ${error ? "error" : ""}`}
+					className={`app-select ${error ? "error" : ""}`}
 					aria-invalid={error ? "true" : "false"}
 					aria-describedby={error ? `${selectId}-error` : undefined}
 					{...props}
@@ -43,7 +43,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 					))}
 				</select>
 				{error && (
-					<span id={`${selectId}-error`} className="lj-select-error">
+					<span id={`${selectId}-error`} className="app-select-error">
 						{error}
 					</span>
 				)}

@@ -1,22 +1,24 @@
 {
-	"permissions": {
-		"allow": [
-			"Bash(encore run)",
-			"Bash(encore version)",
-			"Bash(npx:*)",
-			"Bash(export ENCORE_INSTALL=\"/home/kg/.encore\")",
-			"Bash(export PATH=\"$ENCORE_INSTALL/bin:$PATH\")",
-			"Bash(encore run:*)",
-			"Bash(encore secret set:*)",
-			"Bash(encore:*)",
-			"Bash(cp:*)",
-			"Bash(mv:*)",
-			"Bash(rm:*)",
-			"Bash(git checkout:*)",
-			"Bash(find:*)",
-			"Bash(npm run lint)",
-			"Bash(npm install:*)"
-		],
-		"deny": []
-	}
+  "permissions": {
+    "allow": [
+      "Bash(encore run)",
+      "Bash(encore version)",
+      "Bash(npx:*)",
+      "Bash(export ENCORE_INSTALL=\"/home/kg/.encore\")",
+      "Bash(export PATH=\"$ENCORE_INSTALL/bin:$PATH\")",
+      "Bash(encore run:*)",
+      "Bash(encore secret set:*)",
+      "Bash(encore:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(git checkout:*)",
+      "Bash(find:*)",
+      "Bash(npm run lint)",
+      "Bash(npm install:*)",
+      "Bash(rg:*)",
+      "Bash(npm run test:*)"
+    ],
+    "deny": []
+  }
 }

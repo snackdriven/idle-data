@@ -18,7 +18,7 @@ export const LoadingSkeleton: FC<LoadingSkeletonProps> = ({
 	const skeletons = Array.from({ length: repeat }, (_, index) => (
 		<div
 			key={index}
-			className={`lj-skeleton lj-skeleton-${variant} ${className}`}
+			className={`app-skeleton app-skeleton-${variant} ${className}`}
 			style={{
 				width: typeof width === "number" ? `${width}px` : width,
 				height: typeof height === "number" ? `${height}px` : height,

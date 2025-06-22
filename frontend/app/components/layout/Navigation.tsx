@@ -30,13 +30,13 @@ const NAV_ITEMS: NavItem[] = [
 
 export const Navigation: FC<NavigationProps> = ({ activePage = "recent" }) => {
 	return (
-		<nav className="lj-nav" role="navigation">
-			<div className="lj-nav-tabs">
+		<nav className="app-nav" role="navigation">
+			<div className="app-nav-tabs">
 				{NAV_ITEMS.map((item) => (
 					<Link
 						key={item.id}
 						href={item.href}
-						className={`lj-nav-tab ${activePage === item.id ? "active" : ""}`}
+						className={`app-nav-tab ${activePage === item.id ? "active" : ""}`}
 						aria-current={activePage === item.id ? "page" : undefined}
 					>
 						{item.label}

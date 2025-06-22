@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export const UserHeader: FC = () => {
 	return (
-		<div className="lj-user-header">
-			<Link href="/profile" className="lj-username-link">
-				<span className="lj-username">HELLASPOOKY</span>
+		<div className="app-user-header">
+			<Link href="/profile" className="app-username-link">
+				<span className="app-username">USER123</span>
 			</Link>
-			<span className="lj-tagline">you speak only in riddles and loss</span>
+			<span className="app-tagline">Welcome to the application</span>
 		</div>
 	);
 };

@@ -12,23 +12,23 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
 		return (
 			<div
-				className={`lj-input-wrapper ${fullWidth ? "full-width" : ""} ${className}`}
+				className={`app-input-wrapper ${fullWidth ? "full-width" : ""} ${className}`}
 			>
 				{label && (
-					<label htmlFor={inputId} className="lj-input-label">
+					<label htmlFor={inputId} className="app-input-label">
 						{label}
 					</label>
 				)}
 				<input
 					ref={ref}
 					id={inputId}
-					className={`lj-input ${error ? "error" : ""}`}
+					className={`app-input ${error ? "error" : ""}`}
 					aria-invalid={error ? "true" : "false"}
 					aria-describedby={error ? `${inputId}-error` : undefined}
 					{...props}
 				/>
 				{error && (
-					<span id={`${inputId}-error`} className="lj-input-error">
+					<span id={`${inputId}-error`} className="app-input-error">
 						{error}
 					</span>
 				)}

@@ -12,23 +12,23 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
 		return (
 			<div
-				className={`lj-textarea-wrapper ${fullWidth ? "full-width" : ""} ${className}`}
+				className={`app-textarea-wrapper ${fullWidth ? "full-width" : ""} ${className}`}
 			>
 				{label && (
-					<label htmlFor={textareaId} className="lj-textarea-label">
+					<label htmlFor={textareaId} className="app-textarea-label">
 						{label}
 					</label>
 				)}
 				<textarea
 					ref={ref}
 					id={textareaId}
-					className={`lj-textarea ${error ? "error" : ""}`}
+					className={`app-textarea ${error ? "error" : ""}`}
 					aria-invalid={error ? "true" : "false"}
 					aria-describedby={error ? `${textareaId}-error` : undefined}
 					{...props}
 				/>
 				{error && (
-					<span id={`${textareaId}-error`} className="lj-textarea-error">
+					<span id={`${textareaId}-error`} className="app-textarea-error">
 						{error}
 					</span>
 				)}
