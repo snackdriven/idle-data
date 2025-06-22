@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
+import { ThemeToggle } from "../ui/ThemeToggle";
 
 export const Header: FC = () => {
   return (
@@ -33,6 +34,7 @@ export const Header: FC = () => {
           <button className="lj-search" aria-label="Search">
             <span aria-hidden="true">🔍</span>
           </button>
+          <ThemeToggle size="sm" variant="icon" />
         </div>
       </div>
     </header>
