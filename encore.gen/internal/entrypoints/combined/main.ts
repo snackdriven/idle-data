@@ -15,10 +15,10 @@ import { get as site_getImpl11 } from "../../../../site\\site";
 import { del as site_delImpl12 } from "../../../../site\\site";
 import { list as site_listImpl13 } from "../../../../site\\site";
 import "../../../../monitor\\check";
-import * as site_service from "../../../../site\\encore.service";
+import * as journal_service from "../../../../journal\\encore.service";
 import * as monitor_service from "../../../../monitor\\encore.service";
 import * as frontend_service from "../../../../frontend\\encore.service";
-import * as journal_service from "../../../../journal\\encore.service";
+import * as site_service from "../../../../site\\encore.service";
 
 const gateways: any[] = [
 ];
